@@ -1,0 +1,1209 @@
+<ENTRY>
+{
+ "thisFile": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.xclbin.link_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Thu Jan 27 05:29:40 2022",
+ "timestampMillis": "1643261380845",
+ "buildStep": {
+  "cmdId": "8383fe2a-5783-4019-971a-48948cc60375",
+  "name": "v++",
+  "logFile": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/link.steps.log",
+  "commandLine": "/opt/Xilinx/Vitis/2021.1/bin/unwrapped/lnx64.o/v++ --xp param:compiler.lockFlowCritSlackThreshold=0 --xp vivado_param:hd.routingContainmentAreaExpansion=true --xp vivado_param:hd.supportClockNetCrossDiffReconfigurablePartitions=1 --xp vivado_param:bitstream.enablePR=4123 --xp vivado_param:physynth.ultraRAMOptOutput=false --xp vivado_prop:run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MAX_URAM_CASCADE_HEIGHT}={1} --xp vivado_param:synth.elaboration.rodinMoreOptions={rt::set_parameter disableOregPackingUram true}  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" --target hw --link --config ../linking.cfg --config binary_container_1-link.cfg -obinary_container_1.xclbin ../../Pipe_kernels/Hardware/build/krnl_stream_vadd.xo ../../Pipe_kernels/Hardware/build/krnl_stream_vmult.xo ",
+  "args": [
+   "--xp",
+   "param:compiler.lockFlowCritSlackThreshold=0",
+   "--xp",
+   "vivado_param:hd.routingContainmentAreaExpansion=true",
+   "--xp",
+   "vivado_param:hd.supportClockNetCrossDiffReconfigurablePartitions=1",
+   "--xp",
+   "vivado_param:bitstream.enablePR=4123",
+   "--xp",
+   "vivado_param:physynth.ultraRAMOptOutput=false",
+   "--xp",
+   "vivado_prop:run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MAX_URAM_CASCADE_HEIGHT}={1}",
+   "--xp",
+   "vivado_param:synth.elaboration.rodinMoreOptions={rt::set_parameter disableOregPackingUram true}",
+   "--target",
+   "hw",
+   "--link",
+   "--config",
+   "../linking.cfg",
+   "--config",
+   "binary_container_1-link.cfg",
+   "-obinary_container_1.xclbin",
+   "../../Pipe_kernels/Hardware/build/krnl_stream_vadd.xo",
+   "../../Pipe_kernels/Hardware/build/krnl_stream_vmult.xo"
+  ],
+  "iniFiles": [
+   {
+    "path": "/home/centos/workspace/Pipe_system_hw_link/linking.cfg",
+    "content": "profile_kernel=data:krnl_stream_vmult:all:all\nprofile_kernel=data:krnl_stream_vadd:all:all\nprofile_kernel=data:krnl_stream_vadd:krnl_stream_vadd_1:out:all\nprofile_kernel=data:krnl_stream_vmult:krnl_stream_vmult_1:in:all\n\n[connectivity]\n#Connect vadd to vmult input\nstream_connect=krnl_stream_vadd_1.out:krnl_stream_vmult_1.in2\n\n\n# Assign SRL\nslr=krnl_stream_vadd_1:SLR1\nslr=krnl_stream_vmult_1:SLR1\n\n\n# Assign memory bank\nsp=krnl_stream_vadd_1.in1:DDR[0]\nsp=krnl_stream_vadd_1.in2:DDR[1]\nsp=krnl_stream_vmult_1.out:DDR[2]"
+   },
+   {
+    "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1-link.cfg",
+    "content": "platform=/home/centos/aws-fpga/Vitis/aws_platform/xilinx_aws-vu9p-f1_shell-v04261818_201920_2/xilinx_aws-vu9p-f1_shell-v04261818_201920_2.xpfm\nsave-temps=1\nmessageDb=binary_container_1.mdb\ntemp_dir=binary_container_1.build\nreport_dir=binary_container_1.build/reports\nlog_dir=binary_container_1.build/logs\n\n[advanced]\nmisc=solution_name=link\n\n[connectivity]\nnk=krnl_stream_vadd:1:krnl_stream_vadd_1\nsp=krnl_stream_vadd_1.in1:DDR[0]\nnk=krnl_stream_vmult:1:krnl_stream_vmult_1\nsp=krnl_stream_vmult_1.in1:DDR[2]\nsp=krnl_stream_vmult_1.out:DDR[2]"
+   }
+  ],
+  "cwd": "/home/centos/workspace/Pipe_system_hw_link/Hardware"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 05:29:40 2022",
+ "timestampMillis": "1643261380845",
+ "status": {
+  "cmdId": "8383fe2a-5783-4019-971a-48948cc60375",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Thu Jan 27 05:29:49 2022",
+ "timestampMillis": "1643261389113",
+ "buildSummary": {
+  "hardwarePlatform": "xilinx_aws-vu9p-f1_shell-v04261818_201920_2.xpfm",
+  "hardwareDsa": "xilinx_aws-vu9p-f1_shell-v04261818_201920_2.xsa",
+  "platformDirectory": "/home/centos/aws-fpga/Vitis/aws_platform/xilinx_aws-vu9p-f1_shell-v04261818_201920_2",
+  "runtime": "OpenCL",
+  "systemConfig": "Linux",
+  "flow": "BF_LINK",
+  "target": "TT_HW",
+  "binaryContainer": {
+   "base": {
+    "type": "BT_UKNOWN",
+    "name": "binary_container_1",
+    "file": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.xclbin",
+    "reports": [],
+    "uuid": ""
+   },
+   "kernels": []
+  },
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "krnl_stream_vadd",
+     "file": "/home/centos/workspace/Pipe_kernels/Hardware/build/krnl_stream_vadd.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/xo/krnl_stream_vadd/krnl_stream_vadd/cpu_sources/krnl_stream_vadd.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [
+     "krnl_stream_vadd_1"
+    ],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   },
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "krnl_stream_vmult",
+     "file": "/home/centos/workspace/Pipe_kernels/Hardware/build/krnl_stream_vmult.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/xo/krnl_stream_vmult/krnl_stream_vmult/cpu_sources/krnl_stream_vmult.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [
+     "krnl_stream_vmult_1"
+    ],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "Vitis V++ Compiler Release 2021.1. SW Build 3246112 on 2021-06-09-14:19:56"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Jan 27 05:29:49 2022",
+ "timestampMillis": "1643261389322",
+ "buildStep": {
+  "cmdId": "cead7cc3-0c97-411b-9cea-d1c71fddce9c",
+  "name": "system_link",
+  "logFile": "",
+  "commandLine": "system_link --xo /home/centos/workspace/Pipe_kernels/Hardware/build/krnl_stream_vadd.xo --xo /home/centos/workspace/Pipe_kernels/Hardware/build/krnl_stream_vmult.xo -keep --config /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/syslinkConfig.ini --xpfm /home/centos/aws-fpga/Vitis/aws_platform/xilinx_aws-vu9p-f1_shell-v04261818_201920_2/xilinx_aws-vu9p-f1_shell-v04261818_201920_2.xpfm --target hw --output_dir /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int --temp_dir /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/sys_link",
+  "args": [
+   "--xo",
+   "/home/centos/workspace/Pipe_kernels/Hardware/build/krnl_stream_vadd.xo",
+   "--xo",
+   "/home/centos/workspace/Pipe_kernels/Hardware/build/krnl_stream_vmult.xo",
+   "-keep",
+   "--config",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/syslinkConfig.ini",
+   "--xpfm",
+   "/home/centos/aws-fpga/Vitis/aws_platform/xilinx_aws-vu9p-f1_shell-v04261818_201920_2/xilinx_aws-vu9p-f1_shell-v04261818_201920_2.xpfm",
+   "--target",
+   "hw",
+   "--output_dir",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int",
+   "--temp_dir",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/sys_link"
+  ],
+  "iniFiles": [
+   {
+    "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/syslinkConfig.ini",
+    "content": "nk=krnl_stream_vadd:1:krnl_stream_vadd_1\nnk=krnl_stream_vmult:1:krnl_stream_vmult_1\nsc=krnl_stream_vadd_1.out:krnl_stream_vmult_1.in2\nsp=krnl_stream_vadd_1.in1:DDR[0]\nsp=krnl_stream_vadd_1.in2:DDR[1]\nsp=krnl_stream_vmult_1.out:DDR[2]\nsp=krnl_stream_vadd_1.in1:DDR[0]\nsp=krnl_stream_vmult_1.in1:DDR[2]\nsp=krnl_stream_vmult_1.out:DDR[2]\nslr=krnl_stream_vadd_1:SLR1\nslr=krnl_stream_vmult_1:SLR1\n\n"
+   }
+  ],
+  "cwd": "/home/centos/workspace/Pipe_system_hw_link/Hardware"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 05:29:49 2022",
+ "timestampMillis": "1643261389323",
+ "status": {
+  "cmdId": "cead7cc3-0c97-411b-9cea-d1c71fddce9c",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 05:30:07 2022",
+ "timestampMillis": "1643261407303",
+ "status": {
+  "cmdId": "cead7cc3-0c97-411b-9cea-d1c71fddce9c",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Jan 27 05:30:07 2022",
+ "timestampMillis": "1643261407306",
+ "buildStep": {
+  "cmdId": "776f381c-bd9b-40e9-a1bf-b7cd7a25b8fb",
+  "name": "cf2sw",
+  "logFile": "",
+  "commandLine": "cf2sw -sdsl /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/sdsl.dat -rtd /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/cf2sw.rtd -nofilter /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/cf2sw_full.rtd -xclbin /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/xclbin_orig.xml -o /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/xclbin_orig.1.xml",
+  "args": [
+   "-sdsl",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/sdsl.dat",
+   "-rtd",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/cf2sw.rtd",
+   "-nofilter",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/cf2sw_full.rtd",
+   "-xclbin",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/xclbin_orig.xml",
+   "-o",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/xclbin_orig.1.xml"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/centos/workspace/Pipe_system_hw_link/Hardware"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 05:30:07 2022",
+ "timestampMillis": "1643261407306",
+ "status": {
+  "cmdId": "776f381c-bd9b-40e9-a1bf-b7cd7a25b8fb",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 05:30:10 2022",
+ "timestampMillis": "1643261410077",
+ "status": {
+  "cmdId": "776f381c-bd9b-40e9-a1bf-b7cd7a25b8fb",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Jan 27 05:30:10 2022",
+ "timestampMillis": "1643261410079",
+ "buildStep": {
+  "cmdId": "4ece65aa-1377-4b91-a3f6-a3f44e837139",
+  "name": "rtd2_system_diagram",
+  "logFile": "",
+  "commandLine": "rtd2SystemDiagram",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/centos/workspace/Pipe_system_hw_link/Hardware"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 05:30:10 2022",
+ "timestampMillis": "1643261410079",
+ "status": {
+  "cmdId": "4ece65aa-1377-4b91-a3f6-a3f44e837139",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 05:30:10 2022",
+ "timestampMillis": "1643261410601",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/systemDiagramModel.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "SYSTEM_DIAGRAM",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 05:30:10 2022",
+ "timestampMillis": "1643261410602",
+ "status": {
+  "cmdId": "4ece65aa-1377-4b91-a3f6-a3f44e837139",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Jan 27 05:30:10 2022",
+ "timestampMillis": "1643261410604",
+ "buildStep": {
+  "cmdId": "109bc335-5d30-4874-bb01-42c513cf9d20",
+  "name": "vpl",
+  "logFile": "",
+  "commandLine": "vpl -t hw -f /home/centos/aws-fpga/Vitis/aws_platform/xilinx_aws-vu9p-f1_shell-v04261818_201920_2/xilinx_aws-vu9p-f1_shell-v04261818_201920_2.xpfm --remote_ip_cache /home/centos/workspace/Pipe_system_hw_link/Hardware/.ipcache -s --profile_kernel data:krnl_stream_vmult:all:all --profile_kernel data:krnl_stream_vadd:all:all --profile_kernel data:krnl_stream_vadd:krnl_stream_vadd_1:out:all --profile_kernel data:krnl_stream_vmult:krnl_stream_vmult_1:in:all --output_dir /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int --log_dir /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/logs/link --report_dir /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/reports/link --config /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/vplConfig.ini -k /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/kernel_info.dat --webtalk_flag Vitis --temp_dir /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link --no-info --iprepo /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/xo/ip_repo/xilinx_com_hls_krnl_stream_vmult_1_0 --iprepo /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/xo/ip_repo/xilinx_com_hls_krnl_stream_vadd_1_0 --messageDb /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/run_link/vpl.pb /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/dr.bd.tcl",
+  "args": [
+   "-t",
+   "hw",
+   "-f",
+   "/home/centos/aws-fpga/Vitis/aws_platform/xilinx_aws-vu9p-f1_shell-v04261818_201920_2/xilinx_aws-vu9p-f1_shell-v04261818_201920_2.xpfm",
+   "--remote_ip_cache",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/.ipcache",
+   "-s",
+   "--profile_kernel",
+   "data:krnl_stream_vmult:all:all",
+   "--profile_kernel",
+   "data:krnl_stream_vadd:all:all",
+   "--profile_kernel",
+   "data:krnl_stream_vadd:krnl_stream_vadd_1:out:all",
+   "--profile_kernel",
+   "data:krnl_stream_vmult:krnl_stream_vmult_1:in:all",
+   "--output_dir",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int",
+   "--log_dir",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/logs/link",
+   "--report_dir",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/reports/link",
+   "--config",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/vplConfig.ini",
+   "-k",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/kernel_info.dat",
+   "--webtalk_flag",
+   "Vitis",
+   "--temp_dir",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link",
+   "--no-info",
+   "--iprepo",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/xo/ip_repo/xilinx_com_hls_krnl_stream_vmult_1_0",
+   "--iprepo",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/xo/ip_repo/xilinx_com_hls_krnl_stream_vadd_1_0",
+   "--messageDb",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/run_link/vpl.pb",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/dr.bd.tcl"
+  ],
+  "iniFiles": [
+   {
+    "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/vplConfig.ini",
+    "content": "[advanced]\nparam=compiler.lockFlowCritSlackThreshold=0\nmisc=report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\nmisc=report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\nparam=compiler.enablePerformanceTrace=1\nmisc=solution_name=link\nparam=compiler.vppCurrentWorkingDir=/home/centos/workspace/Pipe_system_hw_link/Hardware\nmisc=BinaryName=binary_container_1\n\n[connectivity]\nnk=krnl_stream_vadd:1:krnl_stream_vadd_1\nnk=krnl_stream_vmult:1:krnl_stream_vmult_1\n\n[vivado]\nparam=hd.routingContainmentAreaExpansion=true\nparam=hd.supportClockNetCrossDiffReconfigurablePartitions=1\nparam=bitstream.enablePR=4123\nparam=physynth.ultraRAMOptOutput=false\nprop=run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MAX_URAM_CASCADE_HEIGHT}={1}\nparam=synth.elaboration.rodinMoreOptions={rt::set_parameter disableOregPackingUram true}\nprop=run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\n\n"
+   }
+  ],
+  "cwd": "/home/centos/workspace/Pipe_system_hw_link/Hardware"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 05:30:10 2022",
+ "timestampMillis": "1643261410605",
+ "status": {
+  "cmdId": "109bc335-5d30-4874-bb01-42c513cf9d20",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Thu Jan 27 05:30:12 2022",
+ "timestampMillis": "1643261412971",
+ "buildStep": {
+  "cmdId": "78995e5b-3025-49a0-849e-e61d87b9eebc",
+  "name": "vpl",
+  "logFile": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/link.steps.log",
+  "commandLine": "/opt/Xilinx/Vitis/2021.1/bin/unwrapped/lnx64.o/vpl -t hw -f /home/centos/aws-fpga/Vitis/aws_platform/xilinx_aws-vu9p-f1_shell-v04261818_201920_2/xilinx_aws-vu9p-f1_shell-v04261818_201920_2.xpfm --remote_ip_cache /home/centos/workspace/Pipe_system_hw_link/Hardware/.ipcache -s --profile_kernel data:krnl_stream_vmult:all:all --profile_kernel data:krnl_stream_vadd:all:all --profile_kernel data:krnl_stream_vadd:krnl_stream_vadd_1:out:all --profile_kernel data:krnl_stream_vmult:krnl_stream_vmult_1:in:all --output_dir /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int --log_dir /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/logs/link --report_dir /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/reports/link --config /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/vplConfig.ini -k /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/kernel_info.dat --webtalk_flag Vitis --temp_dir /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link --no-info --iprepo /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/xo/ip_repo/xilinx_com_hls_krnl_stream_vmult_1_0 --iprepo /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/xo/ip_repo/xilinx_com_hls_krnl_stream_vadd_1_0 --messageDb /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/run_link/vpl.pb /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/dr.bd.tcl ",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/run_link"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 05:30:12 2022",
+ "timestampMillis": "1643261412972",
+ "status": {
+  "cmdId": "78995e5b-3025-49a0-849e-e61d87b9eebc",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_VivadoProject",
+ "dateTimestamp": "Thu Jan 27 05:30:20 2022",
+ "timestampMillis": "1643261420148",
+ "vivadoProject": {
+  "openDir": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/vivado/vpl",
+  "openScript": "openprj.tcl",
+  "relativeProject": "prj/prj.xpr"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Jan 27 05:30:20 2022",
+ "timestampMillis": "1643261420150",
+ "buildStep": {
+  "cmdId": "80bb6dfc-9c94-485b-9237-7b2dc2a6f035",
+  "name": "vivado",
+  "logFile": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/vivado/vpl/vivado.log",
+  "commandLine": "vivado -log vivado.log -applog -m64 -messageDb vivado.pb -mode batch -source vpl.tcl -notrace",
+  "args": [
+   "-log",
+   "vivado.log",
+   "-applog",
+   " -m64",
+   "-messageDb",
+   "vivado.pb",
+   "-mode",
+   "batch",
+   "-source",
+   "vpl.tcl",
+   "-notrace"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/run_link"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 05:30:20 2022",
+ "timestampMillis": "1643261420150",
+ "status": {
+  "cmdId": "80bb6dfc-9c94-485b-9237-7b2dc2a6f035",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 05:31:27 2022",
+ "timestampMillis": "1643261487379",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/debug_ip_layout.rtd",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "DEBUG_IP_LAYOUT",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Thu Jan 27 06:13:08 2022",
+ "timestampMillis": "1643263988690",
+ "buildStep": {
+  "cmdId": "85f19ed9-e197-4f84-8632-88e4ce9e0472",
+  "name": "vivado.impl",
+  "logFile": "",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/vivado/vpl"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 06:13:08 2022",
+ "timestampMillis": "1643263988690",
+ "status": {
+  "cmdId": "85f19ed9-e197-4f84-8632-88e4ce9e0472",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Thu Jan 27 06:13:08 2022",
+ "timestampMillis": "1643263988691",
+ "buildStep": {
+  "cmdId": "71b1a873-d883-4384-9e9f-1693587d1474",
+  "name": "vivado.impl.impl_1",
+  "logFile": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/vivado/vpl/prj/prj.runs/impl_1/runme.log",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/vivado/vpl/prj/prj.runs/impl_1"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 06:13:08 2022",
+ "timestampMillis": "1643263988691",
+ "status": {
+  "cmdId": "71b1a873-d883-4384-9e9f-1693587d1474",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:41:33 2022",
+ "timestampMillis": "1643272893949",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/vivado/vpl/prj/prj.runs/impl_1/system_diagram.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "SYSTEM_DIAGRAM_PLUS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:44:09 2022",
+ "timestampMillis": "1643273049032",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/kernel_service.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "KERNEL_SERVICE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:44:09 2022",
+ "timestampMillis": "1643273049033",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/kernel_service.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "KERNEL_SERVICE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419713",
+ "status": {
+  "cmdId": "80bb6dfc-9c94-485b-9237-7b2dc2a6f035",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419805",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/reports/link/imp/impl_1_kernel_util_synthed.xutil",
+  "name": "",
+  "fileType": "XUTIL",
+  "reportType": "KERNEL_UTILIZATION_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419806",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/reports/link/imp/impl_1_kernel_util_synthed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "KERNEL_UTILIZATION_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419807",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/reports/link/imp/impl_1_full_util_synthed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_UTILIZATION_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419807",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/reports/link/imp/impl_1_full_util_synthed.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_UTILIZATION_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419808",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/reports/link/imp/impl_1_kernel_util_placed.xutil",
+  "name": "",
+  "fileType": "XUTIL",
+  "reportType": "KERNEL_UTILIZATION_PLACEMENT",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419809",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/reports/link/imp/impl_1_kernel_util_placed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "KERNEL_UTILIZATION_PLACEMENT",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419809",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/reports/link/imp/impl_1_slr_util_placed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_SLR_UTIL_PLACED",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419810",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/reports/link/imp/impl_1_slr_util_placed.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_SLR_UTIL_PLACED",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419811",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/reports/link/imp/impl_1_kernel_util_routed.xutil",
+  "name": "",
+  "fileType": "XUTIL",
+  "reportType": "KERNEL_UTILIZATION_ROUTE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419811",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/reports/link/imp/impl_1_kernel_util_routed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "KERNEL_UTILIZATION_ROUTE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419812",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/reports/link/imp/impl_1_slr_util_routed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_SLR_UTIL_ROUTED",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419813",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/reports/link/imp/impl_1_slr_util_routed.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_SLR_UTIL_ROUTED",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419813",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/reports/link/imp/impl_1_full_util_routed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_UTILIZATION_ROUTE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419814",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/reports/link/imp/impl_1_full_util_routed.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_UTILIZATION_ROUTE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419819",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/reports/link/imp/impl_1_system_diagram.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "SYSTEM_DIAGRAM_PLUS",
+  "cmdId": "71b1a873-d883-4384-9e9f-1693587d1474"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419831",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/reports/link/imp/impl_1_xilinx_aws-vu9p-f1_shell-v04261818_201920_2_bb_locked_timing_summary_routed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_TIMING_SUMMARY",
+  "cmdId": "71b1a873-d883-4384-9e9f-1693587d1474"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419847",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/reports/link/imp/impl_1_xilinx_aws-vu9p-f1_shell-v04261818_201920_2_bb_locked_timing_summary_routed.rpx",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_REPORT_TIMING_SUMMARY",
+  "cmdId": "71b1a873-d883-4384-9e9f-1693587d1474"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419848",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/reports/link/imp/impl_1_xilinx_aws-vu9p-f1_shell-v04261818_201920_2_bb_locked_timing_summary_routed.rpv",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_REPORT_TIMING_SUMMARY_CONCISE",
+  "cmdId": "71b1a873-d883-4384-9e9f-1693587d1474"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419869",
+ "status": {
+  "cmdId": "78995e5b-3025-49a0-849e-e61d87b9eebc",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419888",
+ "status": {
+  "cmdId": "109bc335-5d30-4874-bb01-42c513cf9d20",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419891",
+ "buildStep": {
+  "cmdId": "62a77137-c786-4525-9b55-e4f24ec56799",
+  "name": "rtdgen",
+  "logFile": "",
+  "commandLine": "rtdgen",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/centos/workspace/Pipe_system_hw_link/Hardware"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419891",
+ "status": {
+  "cmdId": "62a77137-c786-4525-9b55-e4f24ec56799",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419894",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/binary_container_1_xml.rtd",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "XCLBIN_INFO",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419895",
+ "buildStep": {
+  "cmdId": "34d67f4d-c637-4cf5-ba2f-f9f4479c146f",
+  "name": "cf2sw",
+  "logFile": "",
+  "commandLine": "cf2sw -a /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/address_map.xml -sdsl /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/sdsl.dat -xclbin /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/xclbin_orig.xml -rtd /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/binary_container_1.rtd -o /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/binary_container_1.xml",
+  "args": [
+   "-a",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/address_map.xml",
+   "-sdsl",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/sdsl.dat",
+   "-xclbin",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/xclbin_orig.xml",
+   "-rtd",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/binary_container_1.rtd",
+   "-o",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/binary_container_1.xml"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/centos/workspace/Pipe_system_hw_link/Hardware"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 08:50:19 2022",
+ "timestampMillis": "1643273419896",
+ "status": {
+  "cmdId": "34d67f4d-c637-4cf5-ba2f-f9f4479c146f",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 08:50:22 2022",
+ "timestampMillis": "1643273422511",
+ "status": {
+  "cmdId": "34d67f4d-c637-4cf5-ba2f-f9f4479c146f",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Jan 27 08:50:22 2022",
+ "timestampMillis": "1643273422512",
+ "buildStep": {
+  "cmdId": "7531e507-6f7d-4ad5-b5ec-fc052263fb8f",
+  "name": "rtdgen",
+  "logFile": "",
+  "commandLine": "writeSystemDiagram",
+  "args": [
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/binary_container_1.rtd",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/systemDiagramModelSlrBaseAddress.json"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/centos/workspace/Pipe_system_hw_link/Hardware"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 08:50:22 2022",
+ "timestampMillis": "1643273422512",
+ "status": {
+  "cmdId": "7531e507-6f7d-4ad5-b5ec-fc052263fb8f",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:22 2022",
+ "timestampMillis": "1643273422514",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/systemDiagramModelSlrBaseAddress.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "SYSTEM_DIAGRAM_PLUS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 08:50:22 2022",
+ "timestampMillis": "1643273422515",
+ "status": {
+  "cmdId": "7531e507-6f7d-4ad5-b5ec-fc052263fb8f",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 08:50:22 2022",
+ "timestampMillis": "1643273422515",
+ "status": {
+  "cmdId": "62a77137-c786-4525-9b55-e4f24ec56799",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Jan 27 08:50:22 2022",
+ "timestampMillis": "1643273422517",
+ "buildStep": {
+  "cmdId": "7d2266f5-eab4-42cd-b874-c1d458039712",
+  "name": "xclbinutil",
+  "logFile": "",
+  "commandLine": "xclbinutil --add-section DEBUG_IP_LAYOUT:JSON:/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/debug_ip_layout.rtd --add-section BITSTREAM:RAW:/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/routed.dcp --force --target hw --key-value SYS:dfx_enable:true --add-section :JSON:/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/binary_container_1.rtd --append-section :JSON:/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/appendSection.rtd --add-section CLOCK_FREQ_TOPOLOGY:JSON:/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/binary_container_1_xml.rtd --add-section BUILD_METADATA:JSON:/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/binary_container_1_build.rtd --add-section EMBEDDED_METADATA:RAW:/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/binary_container_1.xml --add-section SYSTEM_METADATA:RAW:/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/systemDiagramModelSlrBaseAddress.json --key-value SYS:PlatformVBNV:xilinx_aws-vu9p-f1_shell-v04261818_201920_2 --output /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.xclbin",
+  "args": [
+   "--add-section",
+   "DEBUG_IP_LAYOUT:JSON:/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/debug_ip_layout.rtd",
+   "--add-section",
+   "BITSTREAM:RAW:/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/routed.dcp",
+   "--force",
+   "--target",
+   "hw",
+   "--key-value",
+   "SYS:dfx_enable:true",
+   "--add-section",
+   ":JSON:/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/binary_container_1.rtd",
+   "--append-section",
+   ":JSON:/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/appendSection.rtd",
+   "--add-section",
+   "CLOCK_FREQ_TOPOLOGY:JSON:/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/binary_container_1_xml.rtd",
+   "--add-section",
+   "BUILD_METADATA:JSON:/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/binary_container_1_build.rtd",
+   "--add-section",
+   "EMBEDDED_METADATA:RAW:/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/binary_container_1.xml",
+   "--add-section",
+   "SYSTEM_METADATA:RAW:/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/int/systemDiagramModelSlrBaseAddress.json",
+   "--key-value",
+   "SYS:PlatformVBNV:xilinx_aws-vu9p-f1_shell-v04261818_201920_2",
+   "--output",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.xclbin"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/centos/workspace/Pipe_system_hw_link/Hardware"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 08:50:22 2022",
+ "timestampMillis": "1643273422518",
+ "status": {
+  "cmdId": "7d2266f5-eab4-42cd-b874-c1d458039712",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 08:50:23 2022",
+ "timestampMillis": "1643273423086",
+ "status": {
+  "cmdId": "7d2266f5-eab4-42cd-b874-c1d458039712",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Jan 27 08:50:23 2022",
+ "timestampMillis": "1643273423088",
+ "buildStep": {
+  "cmdId": "3954a526-de3c-4808-b52d-3f2cfac28c40",
+  "name": "xclbinutilinfo",
+  "logFile": "",
+  "commandLine": "xclbinutil --quiet --force --info /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.xclbin.info --input /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.xclbin",
+  "args": [
+   "--quiet",
+   "--force",
+   "--info",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.xclbin.info",
+   "--input",
+   "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.xclbin"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/centos/workspace/Pipe_system_hw_link/Hardware"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 08:50:23 2022",
+ "timestampMillis": "1643273423088",
+ "status": {
+  "cmdId": "3954a526-de3c-4808-b52d-3f2cfac28c40",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 08:50:26 2022",
+ "timestampMillis": "1643273426501",
+ "status": {
+  "cmdId": "3954a526-de3c-4808-b52d-3f2cfac28c40",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Jan 27 08:50:26 2022",
+ "timestampMillis": "1643273426503",
+ "buildStep": {
+  "cmdId": "82bf3dd6-4607-4f1b-a584-9fa1bf745ea0",
+  "name": "generate_sc_driver",
+  "logFile": "",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/centos/workspace/Pipe_system_hw_link/Hardware"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 08:50:26 2022",
+ "timestampMillis": "1643273426504",
+ "status": {
+  "cmdId": "82bf3dd6-4607-4f1b-a584-9fa1bf745ea0",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 08:50:26 2022",
+ "timestampMillis": "1643273426504",
+ "status": {
+  "cmdId": "82bf3dd6-4607-4f1b-a584-9fa1bf745ea0",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:26 2022",
+ "timestampMillis": "1643273426513",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/reports/link/system_estimate_binary_container_1.xtxt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_SYSTEM_ESTIMATE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:26 2022",
+ "timestampMillis": "1643273426519",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:26 2022",
+ "timestampMillis": "1643273426519",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/guidance.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 08:50:26 2022",
+ "timestampMillis": "1643273426523",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/logs/optraceViewer.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "OPERATION_TRACE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 08:50:26 2022",
+ "timestampMillis": "1643273426524",
+ "status": {
+  "cmdId": "8383fe2a-5783-4019-971a-48948cc60375",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>

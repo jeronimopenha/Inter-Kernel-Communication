@@ -1,0 +1,24 @@
+Wed Jan 26 14:22:34 2022: Running xcd server. This server was built by gradle.
+Wed Jan 26 14:22:34 2022: Server was asked to start on port: '43632'
+Wed Jan 26 14:22:34 2022: Server is using token UUID: '9d7b5a25-e222-4b13-8c24-05ecb66de0dd'
+Wed Jan 26 14:22:34 2022: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+Wed Jan 26 14:22:34 2022: Attempting to start server on port '43632'
+Wed Jan 26 14:22:34 2022: XCD main fifo: created main fifo '/tmp/xcdmain9d7b5a25-e222-4b13-8c24-05ecb66de0dd', fd read = 14
+Wed Jan 26 14:22:34 2022: Running Dispatch Server
+Wed Jan 26 14:22:34 2022: Version 2.2.0
+Wed Jan 26 14:22:42 2022: Dispatch Server: Accepted socket connection from client
+Wed Jan 26 14:22:42 2022: Starting Socket connection
+Wed Jan 26 14:22:42 2022: EXCHANGE_TOKEN received, server token: 9d7b5a25-e222-4b13-8c24-05ecb66de0dd, passed token: 9d7b5a25-e222-4b13-8c24-05ecb66de0dd
+Wed Jan 26 14:22:44 2022: DISPATCH_HANDLER: Adding handler from function makeHandler in library libxv_system_diagram
+Wed Jan 26 14:22:44 2022: SESSION_MGR: creating session with session uuid: 'f54ec004-fe58-4466-b032-6cbbee0c7523' and name 'link'
+Wed Jan 26 14:22:44 2022: KERNEL_SVC: creating session with uuid: 'f54ec004-fe58-4466-b032-6cbbee0c7523' and name 'link'
+Wed Jan 26 14:22:44 2022: GUIDANCE_SMGR: creating guidance session with uuid: 'f54ec004-fe58-4466-b032-6cbbee0c7523' and name 'link'
+Wed Jan 26 14:22:44 2022: SYSTEM_DIAGRAM_SMGR: creating diagram session with uuid: 'f54ec004-fe58-4466-b032-6cbbee0c7523' and name 'link'
+Wed Jan 26 14:23:16 2022: Dispatch Server: Accepted socket connection from client
+Wed Jan 26 14:23:16 2022: Starting Socket connection
+Wed Jan 26 14:23:35 2022: Dispatch Server: Accepted socket connection from client
+Wed Jan 26 14:23:35 2022: Starting Socket connection
+Wed Jan 26 14:28:31 2022: SESSION_MGR: closing session for UUID 'f54ec004-fe58-4466-b032-6cbbee0c7523' with name 'link'
+Wed Jan 26 14:28:31 2022: KERNEL_SVC: closing session for UUID 'f54ec004-fe58-4466-b032-6cbbee0c7523' with name 'link'
+Wed Jan 26 14:28:31 2022: GUIDANCE_SMGR: closing session for UUID 'f54ec004-fe58-4466-b032-6cbbee0c7523' with name 'link'
+Wed Jan 26 14:28:31 2022: SYSTEM_DIAGRAM_SMGR: closing session for UUID 'f54ec004-fe58-4466-b032-6cbbee0c7523' with name 'link'

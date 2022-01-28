@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="krnl_stream_vmult" LaunchDir="/home/centos/workspace/Pipe_kernels/Emulation-HW/build/krnl_stream_vmult/krnl_stream_vmult" FlowId="Build_IP" FromStepId="vitis_hls" ToStepId="vitis_hls"/>
+</Runs>
+

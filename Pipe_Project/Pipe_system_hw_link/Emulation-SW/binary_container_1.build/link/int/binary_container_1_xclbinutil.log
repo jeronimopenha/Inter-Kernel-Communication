@@ -1,0 +1,48 @@
+XRT Build Version: 2.11.0 (heads/202110.2.11.634)
+       Build Date: 2021-07-08 14:01:11
+          Hash ID: 5ad5998d67080f00bca5bf15b3838cf35e0a7b26
+Creating a default 'in-memory' xclbin image.
+
+Section: 'BITSTREAM'(0) was successfully added.
+Size   : 794080 bytes
+Format : RAW
+File   : '/home/centos/workspace/Pipe_system_hw_link/Emulation-SW/binary_container_1.build/link/int/binary_container_1.so'
+
+Section: 'MEM_TOPOLOGY'(6) was successfully added.
+Format : JSON
+File   : 'mem_topology'
+
+Section: 'IP_LAYOUT'(8) was successfully added.
+Format : JSON
+File   : 'ip_layout'
+
+Section: 'CONNECTIVITY'(7) was successfully added.
+Format : JSON
+File   : 'connectivity'
+WARNING: Skipping CLOCK_FREQ_TOPOLOGY section for count size is zero.
+WARNING: Section 'CLOCK_FREQ_TOPOLOGY' content is empty.  No data in the given JSON file.
+
+Section: 'CLOCK_FREQ_TOPOLOGY'(11) was empty.  No action taken.
+Format : JSON
+File   : '/home/centos/workspace/Pipe_system_hw_link/Emulation-SW/binary_container_1.build/link/int/binary_container_1_xml.rtd'
+
+Section: 'BUILD_METADATA'(14) was successfully added.
+Size   : 4697 bytes
+Format : JSON
+File   : '/home/centos/workspace/Pipe_system_hw_link/Emulation-SW/binary_container_1.build/link/int/binary_container_1_build.rtd'
+
+Section: 'EMBEDDED_METADATA'(2) was successfully added.
+Size   : 4158 bytes
+Format : RAW
+File   : '/home/centos/workspace/Pipe_system_hw_link/Emulation-SW/binary_container_1.build/link/int/binary_container_1.xml'
+
+Section: 'DEBUG_DATA'(4) was successfully added.
+Size   : 0 bytes
+Format : RAW
+File   : '/dev/null'
+
+Section: 'PARTITION_METADATA'(20) was successfully appended to.
+Format : JSON
+File   : 'partition_metadata'
+Successfully wrote (815662 bytes) to the output file: /home/centos/workspace/Pipe_system_hw_link/Emulation-SW/binary_container_1.xclbin
+Leaving xclbinutil.

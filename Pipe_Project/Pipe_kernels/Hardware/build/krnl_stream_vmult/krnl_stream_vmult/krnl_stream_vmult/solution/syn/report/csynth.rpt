@@ -1,0 +1,112 @@
+
+
+================================================================
+== Synthesis Summary Report of 'krnl_stream_vmult'
+================================================================
++ General Information: 
+    * Date:           Thu Jan 27 05:29:07 2022
+    * Version:        2021.1 (Build 3247384 on Thu Jun 10 19:36:07 MDT 2021)
+    * Project:        krnl_stream_vmult
+    * Solution:       solution (Vitis Kernel Flow Target)
+    * Product family: virtexuplus
+    * Target device:  xcvu9p-flgb2104-2-i
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +------------------------------------------------+--------+-------+---------+--------+----------+---------+------+----------+---------+---------+------------+------------+-----+
+    |                     Modules                    |  Issue |       | Latency | Latency| Iteration|         | Trip |          |         |         |            |            |     |
+    |                     & Loops                    |  Type  | Slack | (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined|  BRAM   |   DSP   |     FF     |     LUT    | URAM|
+    +------------------------------------------------+--------+-------+---------+--------+----------+---------+------+----------+---------+---------+------------+------------+-----+
+    |+ krnl_stream_vmult                             |  Timing|  -0.00|        -|       -|         -|        -|     -|        no|  2 (~0%)|  3 (~0%)|  1458 (~0%)|  2280 (~0%)|    -|
+    | + grp_krnl_stream_vmult_Pipeline_vmult_fu_111  |  Timing|  -0.00|        -|       -|         -|        -|     -|        no|        -|  3 (~0%)|   430 (~0%)|   243 (~0%)|    -|
+    |  o vmult                                       |       -|   2.92|        -|       -|         5|        1|     -|       yes|        -|        -|           -|           -|    -|
+    +------------------------------------------------+--------+-------+---------+--------+----------+---------+------+----------+---------+---------+------------+------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+| Interface  | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   |
+|            | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+| m_axi_gmem | 32 -> 32   | 64            | 64      | slave  | 0        | 512       | 16           | 16           | 16          | 16          |
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+
+* S_AXILITE
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 6             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* AXIS
++-----------+---------------+-------+-------+-------+--------+-------+--------+
+| Interface | Register Mode | TDATA | TKEEP | TLAST | TREADY | TSTRB | TVALID |
++-----------+---------------+-------+-------+-------+--------+-------+--------+
+| in2       | both          | 32    | 4     | 1     | 1      | 4     | 1      |
++-----------+---------------+-------+-------+-------+--------+-------+--------+
+
+* TOP LEVEL CONTROL
++-----------+---------------+-----------+
+| Interface | Type          | Ports     |
++-----------+---------------+-----------+
+| ap_clk    | clock         | ap_clk    |
+| ap_rst_n  | reset         | ap_rst_n  |
+| interrupt | interrupt     | interrupt |
+| ap_ctrl   | ap_ctrl_chain |           |
++-----------+---------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+---------------------------------------------+
+| Argument | Direction | Datatype                                    |
++----------+-----------+---------------------------------------------+
+| in1      | inout     | int*                                        |
+| in2      | in        | stream<hls::axis<ap_uint<32>, 0, 0, 0>, 0>& |
+| out      | inout     | int*                                        |
+| size     | in        | int                                         |
++----------+-----------+---------------------------------------------+
+
+* SW-to-HW Mapping
++----------+-----------------------+-----------+----------+-----------------------+
+| Argument | HW Name               | HW Type   | HW Usage | HW Info               |
++----------+-----------------------+-----------+----------+-----------------------+
+| in1      | m_axi_gmem            | interface |          |                       |
+| in1      | s_axi_control in1_1   | register  | offset   | offset=0x10, range=32 |
+| in1      | s_axi_control in1_2   | register  | offset   | offset=0x14, range=32 |
+| in2      | in2                   | interface |          |                       |
+| out      | m_axi_gmem            | interface |          |                       |
+| out      | s_axi_control out_r_1 | register  | offset   | offset=0x1c, range=32 |
+| out      | s_axi_control out_r_2 | register  | offset   | offset=0x20, range=32 |
+| size     | s_axi_control size    | register  |          | offset=0x28, range=32 |
++----------+-----------------------+-----------+----------+-----------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+* Burst Summary
++--------------+-------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------+
+| HW Interface | Loop  | Message                                                                                                                                                                                                                        | Location                                                           |
++--------------+-------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------+
+| m_axi_gmem   | vmult | Multiple burst reads of variable length and bit width 32. These bursts requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.  | /home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32:5 |
+| m_axi_gmem   | vmult | Multiple burst writes of variable length and bit width 32. These bursts requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. | /home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32:5 |
++--------------+-------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------+
+
+* Bursts and Widening Missed
++--------------+----------+-------+------------------------------------------------+------------+--------------------------------------------------------------------+
+| HW Interface | Variable | Loop  | Problem                                        | Resolution | Location                                                           |
++--------------+----------+-------+------------------------------------------------+------------+--------------------------------------------------------------------+
+| m_axi_gmem   | in1      | vmult | Sequential access length is not divisible by 2 | 214-234    | /home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32:5 |
+| m_axi_gmem   | out      | vmult | Sequential access length is not divisible by 2 | 214-234    | /home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32:5 |
++--------------+----------+-------+------------------------------------------------+------------+--------------------------------------------------------------------+
+
+    * Resolution URL: www.xilinx.com/cgi-bin/docs/rdoc?v=2021.1;t=hls+guidance;d=XXX-YYY.html (replace XXX-YYY with column value)
+

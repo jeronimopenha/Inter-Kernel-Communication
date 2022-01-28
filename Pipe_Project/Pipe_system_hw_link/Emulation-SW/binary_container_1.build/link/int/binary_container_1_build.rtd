@@ -1,0 +1,213 @@
+{
+    "schema_version": {
+        "major": "1",
+        "minor": "0",
+        "patch": "0"
+    },
+    "build_metadata": {
+        "dsa": {
+            "vendor": "xilinx",
+            "board_id": "aws-vu9p-f1",
+            "name": "shell-v04261818",
+            "version_major": "201920",
+            "version_minor": "2",
+            "description": "",
+            "generated_by": {
+                "name": "Vivado",
+                "version": "2019.2",
+                "cl": "2708876",
+                "time_stamp": "Tue Apr 28 20:02:31 2020"
+            },
+            "board": {
+                "name": "",
+                "vendor": "amazon",
+                "part": "",
+                "board_part": ""
+            },
+            "feature_roms": [
+                {
+                    "time_epoch": "0"
+                }
+            ]
+        },
+        "xclbin": {
+            "generated_by": {
+                "name": "v++",
+                "version": "2021.1",
+                "cl": "3246112",
+                "time_stamp": "2021-06-09-14:19:56",
+                "options": "\/opt\/Xilinx\/Vitis\/2021.1\/bin\/unwrapped\/lnx64.o\/v++ --advanced.misc solution_name=link --config ..\/linking.cfg --config binary_container_1-link.cfg --connectivity.nk krnl_stream_vadd:1:krnl_stream_vadd_1 --connectivity.nk krnl_stream_vmult:1:krnl_stream_vmult_1 --connectivity.slr krnl_stream_vadd_1:SLR1 --connectivity.slr krnl_stream_vmult_1:SLR1 --connectivity.sp krnl_stream_vadd_1.in1:DDR[0] --connectivity.sp krnl_stream_vmult_1.out:DDR[2] --connectivity.sp krnl_stream_vadd_1.in1:DDR[0] --connectivity.sp krnl_stream_vmult_1.in1:DDR[2] --connectivity.sp krnl_stream_vmult_1.out:DDR[2] --connectivity.stream_connect krnl_stream_vadd_1.out:krnl_stream_vmult_1.in2 --debug --input_files ..\/..\/Pipe_kernels\/Emulation-SW\/build\/krnl_stream_vadd.xo --input_files ..\/..\/Pipe_kernels\/Emulation-SW\/build\/krnl_stream_vmult.xo --link --log_dir binary_container_1.build\/logs --messageDb binary_container_1.mdb --optimize 0 --output binary_container_1.xclbin --platform \/home\/centos\/aws-fpga\/Vitis\/aws_platform\/xilinx_aws-vu9p-f1_shell-v04261818_201920_2\/xilinx_aws-vu9p-f1_shell-v04261818_201920_2.xpfm --profile_kernel data:krnl_stream_vmult:all:all --profile_kernel data:krnl_stream_vadd:all:all --profile_kernel data:krnl_stream_vadd:krnl_stream_vadd_1:out:all --profile_kernel data:krnl_stream_vmult:krnl_stream_vmult_1:in:all --remote_ip_cache \/home\/centos\/workspace\/ip_cache --report_dir binary_container_1.build\/reports --report_level 0 --save-temps --target sw_emu --temp_dir binary_container_1.build "
+            },
+            "user_regions": [
+                {
+                    "name": "OCL_REGION_0",
+                    "type": "clc_region",
+                    "instance_path": "WRAPPER_INST\/CL",
+                    "base_address": "",
+                    "kernels": [
+                        {
+                            "name": "krnl_stream_vmult",
+                            "ports": [
+                                {
+                                    "name": "M_AXI_GMEM",
+                                    "mode": "master",
+                                    "range": "0xFFFFFFFF",
+                                    "data_width": "32",
+                                    "port_type": "addressable",
+                                    "base": "0x0"
+                                },
+                                {
+                                    "name": "IN2",
+                                    "mode": "read_only",
+                                    "range": "",
+                                    "data_width": "32",
+                                    "port_type": "stream",
+                                    "base": ""
+                                },
+                                {
+                                    "name": "S_AXI_CONTROL",
+                                    "mode": "slave",
+                                    "range": "0x1000",
+                                    "data_width": "32",
+                                    "port_type": "addressable",
+                                    "base": "0x0"
+                                }
+                            ],
+                            "arguments": [
+                                {
+                                    "name": "in1",
+                                    "address_qualifier": "1",
+                                    "id": "0",
+                                    "port": "M_AXI_GMEM",
+                                    "size": "0x8",
+                                    "offset": "0x10",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x8",
+                                    "type": "void*"
+                                },
+                                {
+                                    "name": "in2",
+                                    "address_qualifier": "4",
+                                    "id": "1",
+                                    "port": "IN2",
+                                    "size": "0x0",
+                                    "offset": "0x0",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x8",
+                                    "type": "stream<hls::axis<ap_uint<32>, 0, 0, 0>, 0>&"
+                                },
+                                {
+                                    "name": "out",
+                                    "address_qualifier": "1",
+                                    "id": "2",
+                                    "port": "M_AXI_GMEM",
+                                    "size": "0x8",
+                                    "offset": "0x1C",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x8",
+                                    "type": "void*"
+                                },
+                                {
+                                    "name": "size",
+                                    "address_qualifier": "0",
+                                    "id": "3",
+                                    "port": "S_AXI_CONTROL",
+                                    "size": "0x4",
+                                    "offset": "0x28",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x4",
+                                    "type": "unsigned int"
+                                }
+                            ],
+                            "instances": [
+                                {
+                                    "name": "krnl_stream_vmult_1"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "krnl_stream_vadd",
+                            "ports": [
+                                {
+                                    "name": "M_AXI_GMEM",
+                                    "mode": "master",
+                                    "range": "0xFFFFFFFF",
+                                    "data_width": "32",
+                                    "port_type": "addressable",
+                                    "base": "0x0"
+                                },
+                                {
+                                    "name": "OUT_R",
+                                    "mode": "write_only",
+                                    "range": "",
+                                    "data_width": "32",
+                                    "port_type": "stream",
+                                    "base": ""
+                                },
+                                {
+                                    "name": "S_AXI_CONTROL",
+                                    "mode": "slave",
+                                    "range": "0x1000",
+                                    "data_width": "32",
+                                    "port_type": "addressable",
+                                    "base": "0x0"
+                                }
+                            ],
+                            "arguments": [
+                                {
+                                    "name": "in1",
+                                    "address_qualifier": "1",
+                                    "id": "0",
+                                    "port": "M_AXI_GMEM",
+                                    "size": "0x8",
+                                    "offset": "0x10",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x8",
+                                    "type": "void*"
+                                },
+                                {
+                                    "name": "in2",
+                                    "address_qualifier": "1",
+                                    "id": "1",
+                                    "port": "M_AXI_GMEM",
+                                    "size": "0x8",
+                                    "offset": "0x1C",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x8",
+                                    "type": "void*"
+                                },
+                                {
+                                    "name": "out",
+                                    "address_qualifier": "4",
+                                    "id": "2",
+                                    "port": "OUT_R",
+                                    "size": "0x0",
+                                    "offset": "0x0",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x8",
+                                    "type": "stream<hls::axis<ap_uint<32>, 0, 0, 0>, 0>&"
+                                },
+                                {
+                                    "name": "size",
+                                    "address_qualifier": "0",
+                                    "id": "3",
+                                    "port": "S_AXI_CONTROL",
+                                    "size": "0x4",
+                                    "offset": "0x28",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x4",
+                                    "type": "unsigned int"
+                                }
+                            ],
+                            "instances": [
+                                {
+                                    "name": "krnl_stream_vadd_1"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

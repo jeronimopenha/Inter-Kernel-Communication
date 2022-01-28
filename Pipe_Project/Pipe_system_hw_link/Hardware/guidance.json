@@ -1,0 +1,918 @@
+{
+ "session": {
+  "name": "Hardware",
+  "uuid": "25de63f5-963f-4e3c-a0eb-b6f5f1d35383",
+  "description": "Vitis IDE session Hardware",
+  "timestamp": "0",
+  "report_file": {
+   "scheme": "FILE",
+   "host": "",
+   "port": 0,
+   "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/guidance.html",
+   "query": "",
+   "fragment": "",
+   "media_type": "",
+   "encoding": "",
+   "data": ""
+  },
+  "proto_file": {
+   "scheme": "FILE",
+   "host": "",
+   "port": 0,
+   "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/guidance.pb",
+   "query": "",
+   "fragment": "",
+   "media_type": "",
+   "encoding": "",
+   "data": ""
+  },
+  "build_target": "",
+  "config_files": []
+ },
+ "violation_count": 5,
+ "waived_count": 0,
+ "affirmation_count": 4,
+ "violations": {
+  "hashmap": {
+   "15": {
+    "id": 15,
+    "severity": "SEV_ADVISORY",
+    "rule_key": "AUTO-FREQ-SCALING-08",
+    "examples": {
+     "uri": [
+      {
+       "link_text": "setting",
+       "url": {
+        "scheme": "HTTPS",
+        "host": "www.xilinx.com",
+        "port": 0,
+        "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2021.1;d=AUTO-FREQ-SCALING-08.html",
+        "query": "",
+        "fragment": "",
+        "media_type": "",
+        "encoding": "",
+        "data": ""
+       },
+       "docgen_filename": ""
+      }
+     ]
+    },
+    "build_target": "",
+    "expects": "",
+    "details": {
+     "text": "For clock !%0!, the auto scaled frequency 252.3 MHz exceeds the original specified frequency. The compiler will select the original specified frequency of 250.0 MHz.",
+     "args": {
+      "arg": [
+       {
+        "ref": {
+         "type": "FILE",
+         "name": "clk_main_a0",
+         "id": 0,
+         "uuid": "",
+         "url": {
+          "scheme": "FILE",
+          "host": "",
+          "port": 0,
+          "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/vivado/vpl/prj/prj.runs/impl_1/dr_timing_summary.rpt",
+          "query": "",
+          "fragment": "",
+          "media_type": "",
+          "encoding": "",
+          "data": ""
+         }
+        },
+        "string_val": ""
+       },
+       {
+        "string_val": "252.3"
+       },
+       {
+        "string_val": "250.0"
+       }
+      ]
+     }
+    },
+    "resolution": {
+     "text": "The automatic frequency scaling feature allows user kernels to operate in hardware, even if at a lower frequency than intended. In this case the clock may in fact be able to run at a higher frequency than specified. You may want to consider !URI%1! the clock frequency higher for better performance. The '--kernel_frequency' option is one way to control the frequency specification.",
+     "args": {
+      "arg": [
+       {
+        "uri": {
+         "link_text": "setting",
+         "url": {
+          "scheme": "HTTPS",
+          "host": "www.xilinx.com",
+          "port": 0,
+          "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2021.1;d=AUTO-FREQ-SCALING-08.html",
+          "query": "",
+          "fragment": "",
+          "media_type": "",
+          "encoding": "",
+          "data": ""
+         },
+         "docgen_filename": ""
+        },
+        "string_val": ""
+       }
+      ]
+     }
+    },
+    "categories": {
+     "2": "Performance",
+     "0": "Accelerator",
+     "1": "binary_container_1"
+    },
+    "extended_categories": {},
+    "impact": "IMPACT_UNKNOWN",
+    "group": ""
+   },
+   "16": {
+    "id": 16,
+    "severity": "SEV_ADVISORY",
+    "rule_key": "AUTO-FREQ-SCALING-08",
+    "examples": {
+     "uri": [
+      {
+       "link_text": "setting",
+       "url": {
+        "scheme": "HTTPS",
+        "host": "www.xilinx.com",
+        "port": 0,
+        "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2021.1;d=AUTO-FREQ-SCALING-08.html",
+        "query": "",
+        "fragment": "",
+        "media_type": "",
+        "encoding": "",
+        "data": ""
+       },
+       "docgen_filename": ""
+      }
+     ]
+    },
+    "build_target": "",
+    "expects": "",
+    "details": {
+     "text": "For clock !%0!, the auto scaled frequency 265.2 MHz exceeds the original specified frequency. The compiler will select the original specified frequency of 250.0 MHz.",
+     "args": {
+      "arg": [
+       {
+        "ref": {
+         "type": "FILE",
+         "name": "clk_extra_b0",
+         "id": 0,
+         "uuid": "",
+         "url": {
+          "scheme": "FILE",
+          "host": "",
+          "port": 0,
+          "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/vivado/vpl/prj/prj.runs/impl_1/dr_timing_summary.rpt",
+          "query": "",
+          "fragment": "",
+          "media_type": "",
+          "encoding": "",
+          "data": ""
+         }
+        },
+        "string_val": ""
+       },
+       {
+        "string_val": "265.2"
+       },
+       {
+        "string_val": "250.0"
+       }
+      ]
+     }
+    },
+    "resolution": {
+     "text": "The automatic frequency scaling feature allows user kernels to operate in hardware, even if at a lower frequency than intended. In this case the clock may in fact be able to run at a higher frequency than specified. You may want to consider !URI%1! the clock frequency higher for better performance. The '--kernel_frequency' option is one way to control the frequency specification.",
+     "args": {
+      "arg": [
+       {
+        "uri": {
+         "link_text": "setting",
+         "url": {
+          "scheme": "HTTPS",
+          "host": "www.xilinx.com",
+          "port": 0,
+          "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2021.1;d=AUTO-FREQ-SCALING-08.html",
+          "query": "",
+          "fragment": "",
+          "media_type": "",
+          "encoding": "",
+          "data": ""
+         },
+         "docgen_filename": ""
+        },
+        "string_val": ""
+       }
+      ]
+     }
+    },
+    "categories": {
+     "0": "Accelerator",
+     "1": "binary_container_1",
+     "2": "Performance"
+    },
+    "extended_categories": {},
+    "impact": "IMPACT_UNKNOWN",
+    "group": ""
+   },
+   "17": {
+    "id": 17,
+    "severity": "SEV_ADVISORY",
+    "rule_key": "AUTO-FREQ-SCALING-08",
+    "examples": {
+     "uri": [
+      {
+       "link_text": "setting",
+       "url": {
+        "scheme": "HTTPS",
+        "host": "www.xilinx.com",
+        "port": 0,
+        "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2021.1;d=AUTO-FREQ-SCALING-08.html",
+        "query": "",
+        "fragment": "",
+        "media_type": "",
+        "encoding": "",
+        "data": ""
+       },
+       "docgen_filename": ""
+      }
+     ]
+    },
+    "build_target": "",
+    "expects": "",
+    "details": {
+     "text": "For clock !%0!, the auto scaled frequency 205.9 MHz exceeds the original specified frequency. The compiler will select the original specified frequency of 125.0 MHz.",
+     "args": {
+      "arg": [
+       {
+        "ref": {
+         "type": "FILE",
+         "name": "clk_extra_a1",
+         "id": 0,
+         "uuid": "",
+         "url": {
+          "scheme": "FILE",
+          "host": "",
+          "port": 0,
+          "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/vivado/vpl/prj/prj.runs/impl_1/dr_timing_summary.rpt",
+          "query": "",
+          "fragment": "",
+          "media_type": "",
+          "encoding": "",
+          "data": ""
+         }
+        },
+        "string_val": ""
+       },
+       {
+        "string_val": "205.9"
+       },
+       {
+        "string_val": "125.0"
+       }
+      ]
+     }
+    },
+    "resolution": {
+     "text": "The automatic frequency scaling feature allows user kernels to operate in hardware, even if at a lower frequency than intended. In this case the clock may in fact be able to run at a higher frequency than specified. You may want to consider !URI%1! the clock frequency higher for better performance. The '--kernel_frequency' option is one way to control the frequency specification.",
+     "args": {
+      "arg": [
+       {
+        "uri": {
+         "link_text": "setting",
+         "url": {
+          "scheme": "HTTPS",
+          "host": "www.xilinx.com",
+          "port": 0,
+          "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2021.1;d=AUTO-FREQ-SCALING-08.html",
+          "query": "",
+          "fragment": "",
+          "media_type": "",
+          "encoding": "",
+          "data": ""
+         },
+         "docgen_filename": ""
+        },
+        "string_val": ""
+       }
+      ]
+     }
+    },
+    "categories": {
+     "0": "Accelerator",
+     "1": "binary_container_1",
+     "2": "Performance"
+    },
+    "extended_categories": {},
+    "impact": "IMPACT_UNKNOWN",
+    "group": ""
+   },
+   "18": {
+    "id": 18,
+    "severity": "SEV_ADVISORY",
+    "rule_key": "AUTO-FREQ-SCALING-08",
+    "examples": {
+     "uri": [
+      {
+       "link_text": "setting",
+       "url": {
+        "scheme": "HTTPS",
+        "host": "www.xilinx.com",
+        "port": 0,
+        "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2021.1;d=AUTO-FREQ-SCALING-08.html",
+        "query": "",
+        "fragment": "",
+        "media_type": "",
+        "encoding": "",
+        "data": ""
+       },
+       "docgen_filename": ""
+      }
+     ]
+    },
+    "build_target": "",
+    "expects": "",
+    "details": {
+     "text": "For clock !%0!, the auto scaled frequency 252.3 MHz exceeds the original specified frequency. The compiler will select the original specified frequency of 250.0 MHz.",
+     "args": {
+      "arg": [
+       {
+        "ref": {
+         "type": "FILE",
+         "name": "clk_main_a0",
+         "id": 0,
+         "uuid": "",
+         "url": {
+          "scheme": "FILE",
+          "host": "",
+          "port": 0,
+          "path": "/home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.build/link/vivado/vpl/prj/prj.runs/impl_1/dr_timing_summary.rpt",
+          "query": "",
+          "fragment": "",
+          "media_type": "",
+          "encoding": "",
+          "data": ""
+         }
+        },
+        "string_val": ""
+       },
+       {
+        "string_val": "252.3"
+       },
+       {
+        "string_val": "250.0"
+       }
+      ]
+     }
+    },
+    "resolution": {
+     "text": "The automatic frequency scaling feature allows user kernels to operate in hardware, even if at a lower frequency than intended. In this case the clock may in fact be able to run at a higher frequency than specified. You may want to consider !URI%1! the clock frequency higher for better performance. The '--kernel_frequency' option is one way to control the frequency specification.",
+     "args": {
+      "arg": [
+       {
+        "uri": {
+         "link_text": "setting",
+         "url": {
+          "scheme": "HTTPS",
+          "host": "www.xilinx.com",
+          "port": 0,
+          "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2021.1;d=AUTO-FREQ-SCALING-08.html",
+          "query": "",
+          "fragment": "",
+          "media_type": "",
+          "encoding": "",
+          "data": ""
+         },
+         "docgen_filename": ""
+        },
+        "string_val": ""
+       }
+      ]
+     }
+    },
+    "categories": {
+     "2": "Performance",
+     "0": "Accelerator",
+     "1": "binary_container_1"
+    },
+    "extended_categories": {},
+    "impact": "IMPACT_UNKNOWN",
+    "group": ""
+   },
+   "13": {
+    "id": 13,
+    "severity": "SEV_WARNING",
+    "rule_key": "ACCELERATOR-SLR-01",
+    "examples": {
+     "uri": [
+      {
+       "link_text": "This page",
+       "url": {
+        "scheme": "HTTPS",
+        "host": "www.xilinx.com",
+        "port": 0,
+        "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2021.1;d=ACCELERATOR-SLR-01.html",
+        "query": "",
+        "fragment": "",
+        "media_type": "",
+        "encoding": "",
+        "data": ""
+       },
+       "docgen_filename": ""
+      }
+     ]
+    },
+    "build_target": "",
+    "expects": "",
+    "details": {
+     "text": "The compute unit !%0! is located in SLR1 while its port !%2! is connected to a memory in SLR2.",
+     "args": {
+      "arg": [
+       {
+        "ref": {
+         "type": "COMPUTE_UNIT",
+         "name": "krnl_stream_vadd_1",
+         "id": 0,
+         "uuid": ""
+        },
+        "string_val": ""
+       },
+       {
+        "string_val": "SLR1"
+       },
+       {
+        "ref": {
+         "type": "COMPUTE_UNIT_PORT",
+         "name": "krnl_stream_vadd_1/m_axi_gmem",
+         "id": 0,
+         "uuid": ""
+        },
+        "string_val": ""
+       },
+       {
+        "string_val": "SLR2"
+       }
+      ]
+     }
+    },
+    "resolution": {
+     "text": "Consider using a memory located in the same SLR, especially if not adjacent. In the [connectivity] section of your config file, use the 'slr' and 'sp' keywords (e.g., slr=vadd1:SLR0, sp=vadd1.a:DDR[0]).",
+     "args": {
+      "arg": [
+       {
+        "uri": {
+         "link_text": "This page",
+         "url": {
+          "scheme": "HTTPS",
+          "host": "www.xilinx.com",
+          "port": 0,
+          "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2021.1;d=ACCELERATOR-SLR-01.html",
+          "query": "",
+          "fragment": "",
+          "media_type": "",
+          "encoding": "",
+          "data": ""
+         },
+         "docgen_filename": ""
+        },
+        "string_val": ""
+       }
+      ]
+     }
+    },
+    "categories": {
+     "2": "Performance",
+     "0": "Accelerator",
+     "1": "System"
+    },
+    "extended_categories": {},
+    "impact": "IMPACT_UNKNOWN",
+    "group": ""
+   }
+  }
+ },
+ "affirmations": {
+  "hashmap": {
+   "12": {
+    "id": 12,
+    "rule_key": "ACCELERATOR-SLR-01",
+    "examples": {
+     "uri": [
+      {
+       "link_text": "This page",
+       "url": {
+        "scheme": "HTTPS",
+        "host": "www.xilinx.com",
+        "port": 0,
+        "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2021.1;d=ACCELERATOR-SLR-01.html",
+        "query": "",
+        "fragment": "",
+        "media_type": "",
+        "encoding": "",
+        "data": ""
+       },
+       "docgen_filename": ""
+      }
+     ]
+    },
+    "build_target": "",
+    "expects": "",
+    "details": {
+     "text": "The compute unit !%0! is located in SLR1 while its port !%2! is connected to a memory in SLR1.",
+     "args": {
+      "arg": [
+       {
+        "ref": {
+         "type": "COMPUTE_UNIT",
+         "name": "krnl_stream_vadd_1",
+         "id": 0,
+         "uuid": ""
+        },
+        "string_val": ""
+       },
+       {
+        "string_val": "SLR1"
+       },
+       {
+        "ref": {
+         "type": "COMPUTE_UNIT_PORT",
+         "name": "krnl_stream_vadd_1/m_axi_gmem",
+         "id": 0,
+         "uuid": ""
+        },
+        "string_val": ""
+       },
+       {
+        "string_val": "SLR1"
+       }
+      ]
+     }
+    },
+    "resolution": {
+     "text": "Consider using a memory located in the same SLR, especially if not adjacent. In the [connectivity] section of your config file, use the 'slr' and 'sp' keywords (e.g., slr=vadd1:SLR0, sp=vadd1.a:DDR[0])."
+    },
+    "categories": {
+     "0": "Accelerator",
+     "1": "System",
+     "2": "Performance"
+    },
+    "extended_categories": {},
+    "group": ""
+   },
+   "14": {
+    "id": 14,
+    "rule_key": "ACCELERATOR-SLR-01",
+    "examples": {
+     "uri": [
+      {
+       "link_text": "This page",
+       "url": {
+        "scheme": "HTTPS",
+        "host": "www.xilinx.com",
+        "port": 0,
+        "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2021.1;d=ACCELERATOR-SLR-01.html",
+        "query": "",
+        "fragment": "",
+        "media_type": "",
+        "encoding": "",
+        "data": ""
+       },
+       "docgen_filename": ""
+      }
+     ]
+    },
+    "build_target": "",
+    "expects": "",
+    "details": {
+     "text": "The compute unit !%0! is located in SLR1 while its port !%2! is connected to a memory in SLR1.",
+     "args": {
+      "arg": [
+       {
+        "ref": {
+         "type": "COMPUTE_UNIT",
+         "name": "krnl_stream_vmult_1",
+         "id": 0,
+         "uuid": ""
+        },
+        "string_val": ""
+       },
+       {
+        "string_val": "SLR1"
+       },
+       {
+        "ref": {
+         "type": "COMPUTE_UNIT_PORT",
+         "name": "krnl_stream_vmult_1/m_axi_gmem",
+         "id": 0,
+         "uuid": ""
+        },
+        "string_val": ""
+       },
+       {
+        "string_val": "SLR1"
+       }
+      ]
+     }
+    },
+    "resolution": {
+     "text": "Consider using a memory located in the same SLR, especially if not adjacent. In the [connectivity] section of your config file, use the 'slr' and 'sp' keywords (e.g., slr=vadd1:SLR0, sp=vadd1.a:DDR[0])."
+    },
+    "categories": {
+     "0": "Accelerator",
+     "1": "System",
+     "2": "Performance"
+    },
+    "extended_categories": {},
+    "group": ""
+   },
+   "11": {
+    "id": 11,
+    "rule_key": "SYSLINK-1",
+    "examples": {
+     "uri": []
+    },
+    "build_target": "",
+    "expects": "",
+    "details": {
+     "text": "Created top level block diagram design dr.bd.tcl",
+     "args": {
+      "arg": [
+       {
+        "string_val": "dr.bd.tcl"
+       }
+      ]
+     }
+    },
+    "categories": {},
+    "extended_categories": {},
+    "group": ""
+   },
+   "19": {
+    "id": 19,
+    "rule_key": "PLATFORM-CLOCK-DOMAINS-01",
+    "examples": {
+     "uri": [
+      {
+       "link_text": "automatic frequency scaling",
+       "url": {
+        "scheme": "HTTPS",
+        "host": "www.xilinx.com",
+        "port": 0,
+        "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2021.1;d=PLATFORM-CLOCK-DOMAINS-01.html",
+        "query": "",
+        "fragment": "",
+        "media_type": "",
+        "encoding": "",
+        "data": ""
+       },
+       "docgen_filename": ""
+      }
+     ]
+    },
+    "build_target": "",
+    "expects": "= or \u003e",
+    "details": {
+     "text": "The compiler selected the following frequencies for the runtime controllable kernel clock(s) and scalable system clock(s): \nKernel: clk_main_a0 = 250.0 MHz \nKernel: clk_extra_b0 = 250.0 MHz \nKernel: clk_extra_a1 = 125.0 MHz \nKernel: clk_extra_c0 = 500.0 MHz \nSystem: clk_main_a0 = 250.0 MHz \nScalable clock clk_extra_b0 (Id = 0) is used for hls kernels. This design has 2 hls kernel(s).\nScalable clock clk_extra_c0 (Id = 1) is used for rtl kernels. This design has 0 rtl kernel(s).",
+     "args": {
+      "arg": [
+       {
+        "string_val": "\nKernel: clk_main_a0 = 250.0 MHz \nKernel: clk_extra_b0 = 250.0 MHz \nKernel: clk_extra_a1 = 125.0 MHz \nKernel: clk_extra_c0 = 500.0 MHz \nSystem: clk_main_a0 = 250.0 MHz \nScalable clock clk_extra_b0 (Id = 0) is used for hls kernels. This design has 2 hls kernel(s).\nScalable clock clk_extra_c0 (Id = 1) is used for rtl kernels. This design has 0 rtl kernel(s)."
+       }
+      ]
+     }
+    },
+    "resolution": {
+     "text": "The !URI%1! feature allows user kernels to operate in hardware, even if at a lower frequency than intended."
+    },
+    "categories": {
+     "0": "Accelerator",
+     "1": "System",
+     "2": "Performance"
+    },
+    "extended_categories": {},
+    "group": ""
+   }
+  }
+ },
+ "specs_violated": {
+  "hashmap": {
+   "AUTO-FREQ-SCALING-08": {
+    "key": "AUTO-FREQ-SCALING-08",
+    "full_name": "Auto frequency scaling - Higher frequency possible",
+    "owner": "sdx",
+    "raw_msg": "For clock %REF, the auto scaled frequency %s MHz exceeds the original specified frequency. The compiler will select the original specified frequency of %s MHz.",
+    "msg_abbrev": "",
+    "msg_id": "0",
+    "categories": {
+     "0": "Accelerator",
+     "1": "xclbin",
+     "2": "Performance"
+    },
+    "resolution_msg": "The automatic frequency scaling feature allows user kernels to operate in hardware, even if at a lower frequency than intended. In this case the clock may in fact be able to run at a higher frequency than specified. You may want to consider !URI%1! the clock frequency higher for better performance. The '--kernel_frequency' option is one way to control the frequency specification.",
+    "examples": {
+     "uri": [
+      {
+       "link_text": "setting",
+       "url": {
+        "scheme": "HTTPS",
+        "host": "www.xilinx.com",
+        "port": 0,
+        "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2021.1;d=AUTO-FREQ-SCALING-08.html",
+        "query": "",
+        "fragment": "",
+        "media_type": "",
+        "encoding": "",
+        "data": ""
+       },
+       "docgen_filename": ""
+      }
+     ]
+    },
+    "severity": "SEV_ADVISORY",
+    "disposition": "ENABLED",
+    "expects": "",
+    "affirm_msg": "",
+    "dynamic_categories": {
+     "2": false,
+     "0": false,
+     "1": true
+    },
+    "extensible_categories": [],
+    "impact": "IMPACT_UNKNOWN",
+    "group": ""
+   },
+   "ACCELERATOR-SLR-01": {
+    "key": "ACCELERATOR-SLR-01",
+    "full_name": "SLR assignments and memory connectivity",
+    "owner": "vitis",
+    "raw_msg": "The compute unit %REF is located in %s while its port %REF is connected to a memory in %s.",
+    "msg_abbrev": "",
+    "msg_id": "0",
+    "categories": {
+     "0": "Accelerator",
+     "1": "System",
+     "2": "Performance"
+    },
+    "resolution_msg": "Consider using a memory located in the same SLR, especially if not adjacent. In the [connectivity] section of your config file, use the 'slr' and 'sp' keywords (e.g., slr=vadd1:SLR0, sp=vadd1.a:DDR[0]).",
+    "examples": {
+     "uri": [
+      {
+       "link_text": "This page",
+       "url": {
+        "scheme": "HTTPS",
+        "host": "www.xilinx.com",
+        "port": 0,
+        "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2021.1;d=ACCELERATOR-SLR-01.html",
+        "query": "",
+        "fragment": "",
+        "media_type": "",
+        "encoding": "",
+        "data": ""
+       },
+       "docgen_filename": ""
+      }
+     ]
+    },
+    "severity": "SEV_WARNING",
+    "disposition": "ENABLED",
+    "expects": "",
+    "affirm_msg": "",
+    "dynamic_categories": {
+     "0": false,
+     "1": false,
+     "2": false
+    },
+    "extensible_categories": [],
+    "impact": "IMPACT_UNKNOWN",
+    "group": ""
+   }
+  }
+ },
+ "specs_affirmed": {
+  "hashmap": {
+   "SYSLINK-1": {
+    "key": "SYSLINK-1",
+    "full_name": "system_link Top Level BD Creation",
+    "owner": "system_link",
+    "raw_msg": "Created top level block diagram design %STR",
+    "msg_abbrev": "",
+    "msg_id": "0",
+    "categories": {},
+    "resolution_msg": "",
+    "severity": "SEV_FATAL",
+    "disposition": "ENABLED",
+    "expects": "",
+    "affirm_msg": "",
+    "dynamic_categories": {},
+    "extensible_categories": [],
+    "impact": "IMPACT_UNKNOWN",
+    "group": ""
+   },
+   "PLATFORM-CLOCK-DOMAINS-01": {
+    "key": "PLATFORM-CLOCK-DOMAINS-01",
+    "full_name": "Runtime controllable clock domains - Achieved clock frequency (MHz)",
+    "owner": "sdx",
+    "raw_msg": "One or more clocks failed a timing check.",
+    "msg_abbrev": "",
+    "msg_id": "0",
+    "categories": {
+     "0": "Accelerator",
+     "1": "System",
+     "2": "Performance"
+    },
+    "resolution_msg": "The !URI%1! feature allows user kernels to operate in hardware, even if at a lower frequency than intended.",
+    "examples": {
+     "uri": [
+      {
+       "link_text": "automatic frequency scaling",
+       "url": {
+        "scheme": "HTTPS",
+        "host": "www.xilinx.com",
+        "port": 0,
+        "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2021.1;d=PLATFORM-CLOCK-DOMAINS-01.html",
+        "query": "",
+        "fragment": "",
+        "media_type": "",
+        "encoding": "",
+        "data": ""
+       },
+       "docgen_filename": ""
+      }
+     ]
+    },
+    "severity": "SEV_WARNING",
+    "disposition": "ENABLED",
+    "expects": "= or \u003e",
+    "affirm_msg": "The compiler selected the following frequencies for the runtime controllable kernel clock(s) and scalable system clock(s): %s",
+    "description": {
+     "scheme": "DATA",
+     "host": "",
+     "port": 0,
+     "path": "",
+     "query": "",
+     "fragment": "",
+     "media_type": "text/html",
+     "encoding": "charset=UTF-8",
+     "data": "\u003chtml\u003e Kernel clocks (and system clocks for some platforms) are scalable; they can preserve functionality at the cost of performance by running at a lower frequency than requested. To be scalable, a clock must be driven by an MMCM where the control registers for the MMCM can be set by the runtime over AXI4-Lite. This item shows the final runtime controlled frequencies for the scalable clocks.\u003c/html\u003e"
+    },
+    "dynamic_categories": {
+     "0": false,
+     "1": false,
+     "2": false
+    },
+    "extensible_categories": [],
+    "impact": "IMPACT_UNKNOWN",
+    "group": ""
+   },
+   "ACCELERATOR-SLR-01": {
+    "key": "ACCELERATOR-SLR-01",
+    "full_name": "SLR assignments and memory connectivity",
+    "owner": "vitis",
+    "raw_msg": "The compute unit %REF is located in %s while its port %REF is connected to a memory in %s.",
+    "msg_abbrev": "",
+    "msg_id": "0",
+    "categories": {
+     "0": "Accelerator",
+     "1": "System",
+     "2": "Performance"
+    },
+    "resolution_msg": "Consider using a memory located in the same SLR, especially if not adjacent. In the [connectivity] section of your config file, use the 'slr' and 'sp' keywords (e.g., slr=vadd1:SLR0, sp=vadd1.a:DDR[0]).",
+    "examples": {
+     "uri": [
+      {
+       "link_text": "This page",
+       "url": {
+        "scheme": "HTTPS",
+        "host": "www.xilinx.com",
+        "port": 0,
+        "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2021.1;d=ACCELERATOR-SLR-01.html",
+        "query": "",
+        "fragment": "",
+        "media_type": "",
+        "encoding": "",
+        "data": ""
+       },
+       "docgen_filename": ""
+      }
+     ]
+    },
+    "severity": "SEV_WARNING",
+    "disposition": "ENABLED",
+    "expects": "",
+    "affirm_msg": "",
+    "dynamic_categories": {
+     "0": false,
+     "1": false,
+     "2": false
+    },
+    "extensible_categories": [],
+    "impact": "IMPACT_UNKNOWN",
+    "group": ""
+   }
+  }
+ }
+}
+

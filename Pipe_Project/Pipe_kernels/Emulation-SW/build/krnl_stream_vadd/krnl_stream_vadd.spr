@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="krnl_stream_vadd" dir="">
+  <FileSets>
+    <FileSet Name="kernel_krnl_stream_vadd" Type="DesignSrcs">
+      <File Path="/home/centos/workspace/Pipe_kernels/src/krnl_stream_vadd.cpp"/>
+      <Config/>
+    </FileSet>
+  </FileSets>
+  <Runs/>
+</project>

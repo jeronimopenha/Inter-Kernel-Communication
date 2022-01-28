@@ -1,0 +1,35 @@
+Begin Function 'krnl_stream_vadd'
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage0)
+# ST_1
+local icmp_ln31 <icmp_31> <integer> <Comparator> 'icmp' </home/centos/workspace/Pipe_kernels/src/krnl_stream_vadd.cpp:31>
+icmp_ln31 /home/centos/workspace/Pipe_kernels/src/krnl_stream_vadd.cpp:31
+reg: icmp_ln31_reg_263[0:0] lv
+
+local gmem_addr <getelementptr_33> <integer> <> 'getelementptr' </home/centos/workspace/Pipe_kernels/src/krnl_stream_vadd.cpp:33>
+gmem_addr /home/centos/workspace/Pipe_kernels/src/krnl_stream_vadd.cpp:33
+reg: gmem_addr_reg_267[63:0] lv
+
+local gmem_addr_1 <getelementptr_33> <integer> <> 'getelementptr' </home/centos/workspace/Pipe_kernels/src/krnl_stream_vadd.cpp:33>
+gmem_addr_1 /home/centos/workspace/Pipe_kernels/src/krnl_stream_vadd.cpp:33
+reg: gmem_addr_1_reg_273[63:0] lv
+
+local v_last_V <icmp_36> <integer> <Comparator> 'icmp' </home/centos/workspace/Pipe_kernels/src/krnl_stream_vadd.cpp:36>
+v.last.V /home/centos/workspace/Pipe_kernels/src/krnl_stream_vadd.cpp:36
+reg: v_last_V_reg_279[0:0] lv
+
+# ST_73
+local gmem_addr_1_read <read_33> <integer> <> 'read' </home/centos/workspace/Pipe_kernels/src/krnl_stream_vadd.cpp:33>
+gmem_addr_1_read /home/centos/workspace/Pipe_kernels/src/krnl_stream_vadd.cpp:33
+reg: gmem_addr_1_read_reg_289[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage1)
+# ST_72
+local gmem_addr_read <read_33> <integer> <> 'read' </home/centos/workspace/Pipe_kernels/src/krnl_stream_vadd.cpp:33>
+gmem_addr_read /home/centos/workspace/Pipe_kernels/src/krnl_stream_vadd.cpp:33
+reg: gmem_addr_read_reg_284[31:0] lv
+
+
+End Function 'krnl_stream_vadd'
+

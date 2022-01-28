@@ -1,0 +1,238 @@
+<ENTRY>
+{
+ "thisFile": "/home/centos/workspace/Pipe_kernels/Hardware/build/krnl_stream_vmult.xo.compile_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Thu Jan 27 05:28:39 2022",
+ "timestampMillis": "1643261319232",
+ "buildStep": {
+  "cmdId": "7a9c5948-331d-4ef6-9c90-272d23753a93",
+  "name": "v++",
+  "logFile": "/home/centos/workspace/Pipe_kernels/Hardware/build/krnl_stream_vmult/krnl_stream_vmult.steps.log",
+  "commandLine": "/opt/Xilinx/Vitis/2021.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" --target hw --compile -I../src --config krnl_stream_vmult-compile.cfg -obuild/krnl_stream_vmult.xo ../src/krnl_stream_vmult.cpp ",
+  "args": [
+   "--target",
+   "hw",
+   "--compile",
+   "-I../src",
+   "--config",
+   "krnl_stream_vmult-compile.cfg",
+   "-obuild/krnl_stream_vmult.xo",
+   "../src/krnl_stream_vmult.cpp"
+  ],
+  "iniFiles": [
+   {
+    "path": "/home/centos/workspace/Pipe_kernels/Hardware/krnl_stream_vmult-compile.cfg",
+    "content": "platform=/home/centos/aws-fpga/Vitis/aws_platform/xilinx_aws-vu9p-f1_shell-v04261818_201920_2/xilinx_aws-vu9p-f1_shell-v04261818_201920_2.xpfm\nsave-temps=1\nkernel=krnl_stream_vmult\nmessageDb=build/krnl_stream_vmult.mdb\ntemp_dir=build\nreport_dir=build/reports\nlog_dir=build/logs\n\n[advanced]\nmisc=solution_name=krnl_stream_vmult"
+   }
+  ],
+  "cwd": "/home/centos/workspace/Pipe_kernels/Hardware"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 05:28:39 2022",
+ "timestampMillis": "1643261319233",
+ "status": {
+  "cmdId": "7a9c5948-331d-4ef6-9c90-272d23753a93",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Thu Jan 27 05:28:45 2022",
+ "timestampMillis": "1643261325403",
+ "buildSummary": {
+  "hardwarePlatform": "xilinx_aws-vu9p-f1_shell-v04261818_201920_2.xpfm",
+  "hardwareDsa": "xilinx_aws-vu9p-f1_shell-v04261818_201920_2.xsa",
+  "platformDirectory": "/home/centos/aws-fpga/Vitis/aws_platform/xilinx_aws-vu9p-f1_shell-v04261818_201920_2",
+  "runtime": "OpenCL",
+  "systemConfig": "Linux",
+  "flow": "BF_COMPILE",
+  "target": "TT_HW",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "krnl_stream_vmult",
+     "file": "/home/centos/workspace/Pipe_kernels/Hardware/build/krnl_stream_vmult.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "Vitis V++ Compiler Release 2021.1. SW Build 3246112 on 2021-06-09-14:19:56"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Jan 27 05:28:45 2022",
+ "timestampMillis": "1643261325419",
+ "buildStep": {
+  "cmdId": "7ff9e003-d3e6-48f5-ab85-6e2abd39a739",
+  "name": "vitis_hls",
+  "logFile": "/home/centos/workspace/Pipe_kernels/Hardware/build/krnl_stream_vmult/krnl_stream_vmult/vitis_hls.log",
+  "commandLine": "vitis_hls -f /home/centos/workspace/Pipe_kernels/Hardware/build/krnl_stream_vmult/krnl_stream_vmult/krnl_stream_vmult.tcl -messageDb vitis_hls.pb",
+  "args": [
+   "vitis_hls",
+   "-f",
+   "/home/centos/workspace/Pipe_kernels/Hardware/build/krnl_stream_vmult/krnl_stream_vmult/krnl_stream_vmult.tcl",
+   "-messageDb",
+   "vitis_hls.pb"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/centos/workspace/Pipe_kernels/Hardware"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 05:28:45 2022",
+ "timestampMillis": "1643261325419",
+ "status": {
+  "cmdId": "7ff9e003-d3e6-48f5-ab85-6e2abd39a739",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 05:29:27 2022",
+ "timestampMillis": "1643261367306",
+ "status": {
+  "cmdId": "7ff9e003-d3e6-48f5-ab85-6e2abd39a739",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 05:29:27 2022",
+ "timestampMillis": "1643261367321",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_kernels/Hardware/build/krnl_stream_vmult/krnl_stream_vmult/krnl_stream_vmult/solution/.autopilot/db/krnl_stream_vmult.design.xml",
+  "name": "krnl_stream_vmult",
+  "fileType": "XML",
+  "reportType": "KERNEL_HLS_REPORT",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 05:29:27 2022",
+ "timestampMillis": "1643261367321",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_kernels/Hardware/build/krnl_stream_vmult/krnl_stream_vmult/krnl_stream_vmult/solution/.autopilot/db/.message_syn.xml",
+  "name": "krnl_stream_vmult",
+  "fileType": "XML",
+  "reportType": "KERNEL_HLS_DRC_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 05:29:27 2022",
+ "timestampMillis": "1643261367322",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_kernels/Hardware/build/reports/krnl_stream_vmult/hls_reports/krnl_stream_vmult_csynth.rpt",
+  "name": "krnl_stream_vmult",
+  "fileType": "TEXT",
+  "reportType": "KERNEL_HLS_CSYNTH",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 05:29:27 2022",
+ "timestampMillis": "1643261367323",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_kernels/Hardware/build/krnl_stream_vmult/krnl_stream_vmult/krnl_stream_vmult/solution/syn/report/krnl_stream_vmult_csynth.xml",
+  "name": "krnl_stream_vmult",
+  "fileType": "XML",
+  "reportType": "KERNEL_HLS_CSYNTH",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 05:29:27 2022",
+ "timestampMillis": "1643261367327",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_kernels/Hardware/build/reports/krnl_stream_vmult/system_estimate_krnl_stream_vmult.xtxt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_SYSTEM_ESTIMATE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 05:29:27 2022",
+ "timestampMillis": "1643261367361",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_kernels/Hardware/guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jan 27 05:29:27 2022",
+ "timestampMillis": "1643261367361",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_kernels/Hardware/guidance.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jan 27 05:29:27 2022",
+ "timestampMillis": "1643261367362",
+ "status": {
+  "cmdId": "7a9c5948-331d-4ef6-9c90-272d23753a93",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>

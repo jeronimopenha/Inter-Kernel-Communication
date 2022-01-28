@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="link" dir="">
+  <FileSets>
+    <FileSet Name="kernel_krnl_stream_vadd" Type="DesignSrcs">
+      <File Path="/home/centos/workspace/Pipe_system_hw_link/Emulation-SW/binary_container_1.build/link/int/xo/krnl_stream_vadd/krnl_stream_vadd/cpu_sources/krnl_stream_vadd.cpp"/>
+      <Config/>
+    </FileSet>
+    <FileSet Name="kernel_krnl_stream_vmult" Type="DesignSrcs">
+      <File Path="/home/centos/workspace/Pipe_system_hw_link/Emulation-SW/binary_container_1.build/link/int/xo/krnl_stream_vmult/krnl_stream_vmult/cpu_sources/krnl_stream_vmult.cpp"/>
+      <Config/>
+    </FileSet>
+  </FileSets>
+  <Runs/>
+</project>

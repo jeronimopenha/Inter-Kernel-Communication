@@ -1,0 +1,6 @@
+2022-01-26T12:54:15.93359400255-12:54:15 **** Incremental Build of configuration Emulation-SW for project Pipe_kernels ****
+000-make -j8 all 
+000-make: Nothing to be done for `all'.
+00255-
+12:54:16 Build Finished (took 85ms)
+

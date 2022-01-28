@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vitis Analyzer v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+# 
+# Start of session at: Wed Jan 26 15:52:35 2022
+# Process ID: 17515
+# Current directory: /home/centos/workspace/Pipe_system_hw_link/Emulation-HW
+# Command line: vitis_analyzer /home/centos/workspace/Pipe_system_hw_link/Emulation-HW/binary_container_1.xclbin.link_summary -listener
+# Log file: /home/centos/workspace/Pipe_system_hw_link/Emulation-HW/vitis_analyzer.log
+# Journal file: /home/centos/workspace/Pipe_system_hw_link/Emulation-HW/vitis_analyzer.jou
+#-----------------------------------------------------------
+start_gui
+create_project dummy

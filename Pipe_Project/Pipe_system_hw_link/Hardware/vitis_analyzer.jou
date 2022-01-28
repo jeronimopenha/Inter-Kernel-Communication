@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vitis Analyzer v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+# 
+# Start of session at: Thu Jan 27 10:43:40 2022
+# Process ID: 26601
+# Current directory: /home/centos/workspace/Pipe_system_hw_link/Hardware
+# Command line: vitis_analyzer /home/centos/workspace/Pipe_system_hw_link/Hardware/binary_container_1.xclbin.link_summary -listener
+# Log file: /home/centos/workspace/Pipe_system_hw_link/Hardware/vitis_analyzer.log
+# Journal file: /home/centos/workspace/Pipe_system_hw_link/Hardware/vitis_analyzer.jou
+#-----------------------------------------------------------
+start_gui
+create_project dummy

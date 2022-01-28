@@ -1,0 +1,168 @@
+<ENTRY>
+{
+ "thisFile": "/home/centos/workspace/Pipe_kernels/Emulation-SW/build/krnl_stream_vadd.xo.compile_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Wed Jan 26 11:36:54 2022",
+ "timestampMillis": "1643197014872",
+ "buildStep": {
+  "cmdId": "e58e5b01-305a-44af-b7b3-2fdeae4066bf",
+  "name": "v++",
+  "logFile": "/home/centos/workspace/Pipe_kernels/Emulation-SW/build/krnl_stream_vadd/krnl_stream_vadd.steps.log",
+  "commandLine": "/opt/Xilinx/Vitis/2021.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" --target sw_emu --compile -I../src --config krnl_stream_vadd-compile.cfg -obuild/krnl_stream_vadd.xo ../src/krnl_stream_vadd.cpp ",
+  "args": [
+   "--target",
+   "sw_emu",
+   "--compile",
+   "-I../src",
+   "--config",
+   "krnl_stream_vadd-compile.cfg",
+   "-obuild/krnl_stream_vadd.xo",
+   "../src/krnl_stream_vadd.cpp"
+  ],
+  "iniFiles": [
+   {
+    "path": "/home/centos/workspace/Pipe_kernels/Emulation-SW/krnl_stream_vadd-compile.cfg",
+    "content": "platform=/home/centos/aws-fpga/Vitis/aws_platform/xilinx_aws-vu9p-f1_shell-v04261818_201920_2/xilinx_aws-vu9p-f1_shell-v04261818_201920_2.xpfm\nsave-temps=1\nkernel=krnl_stream_vadd\ndebug=1\nmessageDb=build/krnl_stream_vadd.mdb\ntemp_dir=build\nreport_dir=build/reports\nlog_dir=build/logs\n\n[advanced]\nmisc=solution_name=krnl_stream_vadd"
+   }
+  ],
+  "cwd": "/home/centos/workspace/Pipe_kernels/Emulation-SW"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Wed Jan 26 11:36:54 2022",
+ "timestampMillis": "1643197014872",
+ "status": {
+  "cmdId": "e58e5b01-305a-44af-b7b3-2fdeae4066bf",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Wed Jan 26 11:37:01 2022",
+ "timestampMillis": "1643197021287",
+ "buildSummary": {
+  "hardwarePlatform": "xilinx_aws-vu9p-f1_shell-v04261818_201920_2.xpfm",
+  "hardwareDsa": "xilinx_aws-vu9p-f1_shell-v04261818_201920_2.xsa",
+  "platformDirectory": "/home/centos/aws-fpga/Vitis/aws_platform/xilinx_aws-vu9p-f1_shell-v04261818_201920_2",
+  "runtime": "OpenCL",
+  "systemConfig": "Linux",
+  "flow": "BF_COMPILE",
+  "target": "TT_SW_EMU",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "krnl_stream_vadd",
+     "file": "/home/centos/workspace/Pipe_kernels/Emulation-SW/build/krnl_stream_vadd.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/centos/workspace/Pipe_kernels/src/krnl_stream_vadd.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "Vitis V++ Compiler Release 2021.1. SW Build 3246112 on 2021-06-09-14:19:56"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Wed Jan 26 11:37:01 2022",
+ "timestampMillis": "1643197021294",
+ "buildStep": {
+  "cmdId": "ab4fca46-5ede-4d81-a691-eea70e5ed885",
+  "name": "vitis_hls",
+  "logFile": "/home/centos/workspace/Pipe_kernels/Emulation-SW/build/krnl_stream_vadd/krnl_stream_vadd/vitis_hls.log",
+  "commandLine": "vitis_hls -f /home/centos/workspace/Pipe_kernels/Emulation-SW/build/krnl_stream_vadd/krnl_stream_vadd/krnl_stream_vadd.tcl -messageDb vitis_hls.pb",
+  "args": [
+   "vitis_hls",
+   "-f",
+   "/home/centos/workspace/Pipe_kernels/Emulation-SW/build/krnl_stream_vadd/krnl_stream_vadd/krnl_stream_vadd.tcl",
+   "-messageDb",
+   "vitis_hls.pb"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/centos/workspace/Pipe_kernels/Emulation-SW"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Wed Jan 26 11:37:01 2022",
+ "timestampMillis": "1643197021294",
+ "status": {
+  "cmdId": "ab4fca46-5ede-4d81-a691-eea70e5ed885",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Wed Jan 26 11:37:18 2022",
+ "timestampMillis": "1643197038213",
+ "status": {
+  "cmdId": "ab4fca46-5ede-4d81-a691-eea70e5ed885",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Wed Jan 26 11:37:18 2022",
+ "timestampMillis": "1643197038223",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_kernels/Emulation-SW/guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Wed Jan 26 11:37:18 2022",
+ "timestampMillis": "1643197038223",
+ "report": {
+  "path": "/home/centos/workspace/Pipe_kernels/Emulation-SW/guidance.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Wed Jan 26 11:37:18 2022",
+ "timestampMillis": "1643197038224",
+ "status": {
+  "cmdId": "e58e5b01-305a-44af-b7b3-2fdeae4066bf",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>

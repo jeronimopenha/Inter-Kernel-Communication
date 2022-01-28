@@ -1,0 +1,8 @@
+krnl_stream_vadd_control_s_axi
+krnl_stream_vadd_gmem_m_axi
+krnl_stream_vadd_regslice_both
+krnl_stream_vadd_regslice_both
+krnl_stream_vadd_regslice_both
+krnl_stream_vadd_regslice_both
+krnl_stream_vadd_flow_control_loop_pipe
+krnl_stream_vadd

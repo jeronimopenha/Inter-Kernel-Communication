@@ -1,0 +1,2 @@
+performing high-level synthesis for kernel: krnl_stream_vadd
+Log file: /home/centos/workspace/Pipe_kernels/Emulation-HW/build/krnl_stream_vadd/krnl_stream_vadd/vitis_hls.log

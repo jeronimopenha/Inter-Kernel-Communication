@@ -1,0 +1,1 @@
+/opt/Xilinx/Vitis/2021.1/bin/v++ --target hw --link --config ../linking.cfg --config binary_container_1-link.cfg -obinary_container_1.xclbin ../../Pipe_kernels/Hardware/build/krnl_stream_vadd.xo ../../Pipe_kernels/Hardware/build/krnl_stream_vmult.xo

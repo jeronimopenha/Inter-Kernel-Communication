@@ -1,0 +1,20 @@
+Wed Jan 26 12:54:20 2022: Running xcd server. This server was built by gradle.
+Wed Jan 26 12:54:20 2022: Server was asked to start on port: '42773'
+Wed Jan 26 12:54:20 2022: Server is using token UUID: '022c4608-c6ff-4757-ba2a-6efd81a8173e'
+Wed Jan 26 12:54:20 2022: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+Wed Jan 26 12:54:20 2022: Attempting to start server on port '42773'
+Wed Jan 26 12:54:20 2022: XCD main fifo: created main fifo '/tmp/xcdmain022c4608-c6ff-4757-ba2a-6efd81a8173e', fd read = 14
+Wed Jan 26 12:54:20 2022: Running Dispatch Server
+Wed Jan 26 12:54:20 2022: Version 2.2.0
+Wed Jan 26 12:54:29 2022: Dispatch Server: Accepted socket connection from client
+Wed Jan 26 12:54:29 2022: Starting Socket connection
+Wed Jan 26 12:54:29 2022: EXCHANGE_TOKEN received, server token: 022c4608-c6ff-4757-ba2a-6efd81a8173e, passed token: 022c4608-c6ff-4757-ba2a-6efd81a8173e
+Wed Jan 26 12:54:30 2022: DISPATCH_HANDLER: Adding handler from function makeHandler in library libxv_system_diagram
+Wed Jan 26 12:54:30 2022: SESSION_MGR: creating session with session uuid: 'f1479087-f111-4b95-a596-5d12c5efcb32' and name 'link'
+Wed Jan 26 12:54:30 2022: KERNEL_SVC: creating session with uuid: 'f1479087-f111-4b95-a596-5d12c5efcb32' and name 'link'
+Wed Jan 26 12:54:30 2022: GUIDANCE_SMGR: creating guidance session with uuid: 'f1479087-f111-4b95-a596-5d12c5efcb32' and name 'link'
+Wed Jan 26 12:54:30 2022: SYSTEM_DIAGRAM_SMGR: creating diagram session with uuid: 'f1479087-f111-4b95-a596-5d12c5efcb32' and name 'link'
+Wed Jan 26 12:54:42 2022: SESSION_MGR: closing session for UUID 'f1479087-f111-4b95-a596-5d12c5efcb32' with name 'link'
+Wed Jan 26 12:54:42 2022: KERNEL_SVC: closing session for UUID 'f1479087-f111-4b95-a596-5d12c5efcb32' with name 'link'
+Wed Jan 26 12:54:42 2022: GUIDANCE_SMGR: closing session for UUID 'f1479087-f111-4b95-a596-5d12c5efcb32' with name 'link'
+Wed Jan 26 12:54:42 2022: SYSTEM_DIAGRAM_SMGR: closing session for UUID 'f1479087-f111-4b95-a596-5d12c5efcb32' with name 'link'

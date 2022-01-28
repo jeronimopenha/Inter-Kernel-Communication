@@ -1,0 +1,1919 @@
+
+
+================================================================
+== Vitis HLS Report for 'krnl_stream_vmult'
+================================================================
+* Date:           Wed Jan 26 14:22:12 2022
+
+* Version:        2021.1 (Build 3247384 on Thu Jun 10 19:36:07 MDT 2021)
+* Project:        krnl_stream_vmult
+* Solution:       solution (Vitis Kernel Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu9p-flgb2104-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  4.00 ns|  2.920 ns|     1.08 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        2|        ?|  8.000 ns|         ?|    3|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +---------------------------------------------+----------------------------------+---------+---------+-----------+----------+-----+-----+---------+
+        |                                             |                                  |  Latency (cycles) |  Latency (absolute)  |  Interval | Pipeline|
+        |                   Instance                  |              Module              |   min   |   max   |    min    |    max   | min | max |   Type  |
+        +---------------------------------------------+----------------------------------+---------+---------+-----------+----------+-----+-----+---------+
+        |grp_krnl_stream_vmult_Pipeline_vmult_fu_111  |krnl_stream_vmult_Pipeline_vmult  |        6|        ?|  24.000 ns|         ?|    6|    ?|       no|
+        +---------------------------------------------+----------------------------------+---------+---------+-----------+----------+-----+-----+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+------+---------+---------+-----+
+|         Name        | BRAM_18K|  DSP |    FF   |   LUT   | URAM|
++---------------------+---------+------+---------+---------+-----+
+|DSP                  |        -|     -|        -|        -|    -|
+|Expression           |        -|     -|        0|       34|    -|
+|FIFO                 |        -|     -|        -|        -|    -|
+|Instance             |        2|     3|     1156|     1193|    0|
+|Memory               |        -|     -|        -|        -|    -|
+|Multiplexer          |        -|     -|        -|     1071|    -|
+|Register             |        -|     -|      305|        -|    -|
++---------------------+---------+------+---------+---------+-----+
+|Total                |        2|     3|     1461|     2298|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available SLR        |     1440|  2280|   788160|   394080|  320|
++---------------------+---------+------+---------+---------+-----+
+|Utilization SLR (%)  |       ~0|    ~0|       ~0|       ~0|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available            |     4320|  6840|  2364480|  1182240|  960|
++---------------------+---------+------+---------+---------+-----+
+|Utilization (%)      |       ~0|    ~0|       ~0|       ~0|    0|
++---------------------+---------+------+---------+---------+-----+
+
++ Detail: 
+    * Instance: 
+    +---------------------------------------------+----------------------------------+---------+----+-----+-----+-----+
+    |                   Instance                  |              Module              | BRAM_18K| DSP|  FF | LUT | URAM|
+    +---------------------------------------------+----------------------------------+---------+----+-----+-----+-----+
+    |control_s_axi_U                              |control_s_axi                     |        0|   0|  214|  360|    0|
+    |gmem_m_axi_U                                 |gmem_m_axi                        |        2|   0|  512|  580|    0|
+    |grp_krnl_stream_vmult_Pipeline_vmult_fu_111  |krnl_stream_vmult_Pipeline_vmult  |        0|   3|  430|  253|    0|
+    +---------------------------------------------+----------------------------------+---------+----+-----+-----+-----+
+    |Total                                        |                                  |        2|   3| 1156| 1193|    0|
+    +---------------------------------------------+----------------------------------+---------+----+-----+-----+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------+----------+----+---+----+------------+------------+
+    |     Variable Name     | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------+----------+----+---+----+------------+------------+
+    |ap_block_state141      |       and|   0|  0|   2|           1|           1|
+    |ap_block_state2_io     |       and|   0|  0|   2|           1|           1|
+    |ap_ext_blocking_cur_n  |       and|   0|  0|   2|           1|           1|
+    |ap_ext_blocking_n      |       and|   0|  0|   2|           1|           1|
+    |ap_int_blocking_n      |       and|   0|  0|   2|           1|           2|
+    |ap_str_blocking_n      |       and|   0|  0|   2|           1|           2|
+    |icmp_ln32_fu_128_p2    |      icmp|   0|  0|  20|          32|           1|
+    |ap_block_state1        |        or|   0|  0|   2|           1|           1|
+    +-----------------------+----------+----+---+----+------------+------------+
+    |Total                  |          |   0|  0|  34|          39|          10|
+    +-----------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+-----+-----------+-----+-----------+
+    |           Name          | LUT | Input Size| Bits| Total Bits|
+    +-------------------------+-----+-----------+-----+-----------+
+    |ap_NS_fsm                |  748|        142|    1|        142|
+    |ap_done                  |    9|          2|    1|          2|
+    |gmem_ARADDR              |   14|          3|   64|        192|
+    |gmem_ARBURST             |    9|          2|    2|          4|
+    |gmem_ARCACHE             |    9|          2|    4|          8|
+    |gmem_ARID                |    9|          2|    1|          2|
+    |gmem_ARLEN               |   14|          3|   32|         96|
+    |gmem_ARLOCK              |    9|          2|    2|          4|
+    |gmem_ARPROT              |    9|          2|    3|          6|
+    |gmem_ARQOS               |    9|          2|    4|          8|
+    |gmem_ARREGION            |    9|          2|    4|          8|
+    |gmem_ARSIZE              |    9|          2|    3|          6|
+    |gmem_ARUSER              |    9|          2|    1|          2|
+    |gmem_ARVALID             |   14|          3|    1|          3|
+    |gmem_AWADDR              |   14|          3|   64|        192|
+    |gmem_AWBURST             |    9|          2|    2|          4|
+    |gmem_AWCACHE             |    9|          2|    4|          8|
+    |gmem_AWID                |    9|          2|    1|          2|
+    |gmem_AWLEN               |   14|          3|   32|         96|
+    |gmem_AWLOCK              |    9|          2|    2|          4|
+    |gmem_AWPROT              |    9|          2|    3|          6|
+    |gmem_AWQOS               |    9|          2|    4|          8|
+    |gmem_AWREGION            |    9|          2|    4|          8|
+    |gmem_AWSIZE              |    9|          2|    3|          6|
+    |gmem_AWUSER              |    9|          2|    1|          2|
+    |gmem_AWVALID             |   14|          3|    1|          3|
+    |gmem_BREADY              |   14|          3|    1|          3|
+    |gmem_RREADY              |    9|          2|    1|          2|
+    |gmem_WVALID              |    9|          2|    1|          2|
+    |gmem_blk_n_AR            |    9|          2|    1|          2|
+    |gmem_blk_n_AW            |    9|          2|    1|          2|
+    |gmem_blk_n_B             |    9|          2|    1|          2|
+    |in2_TREADY_int_regslice  |    9|          2|    1|          2|
+    +-------------------------+-----+-----------+-----+-----------+
+    |Total                    | 1071|        213|  251|        837|
+    +-------------------------+-----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------------------------------------+-----+----+-----+-----------+
+    |                           Name                           |  FF | LUT| Bits| Const Bits|
+    +----------------------------------------------------------+-----+----+-----+-----------+
+    |ap_CS_fsm                                                 |  141|   0|  141|          0|
+    |ap_done_reg                                               |    1|   0|    1|          0|
+    |ap_ext_blocking_n_reg                                     |    1|   0|    1|          0|
+    |ap_int_blocking_n_reg                                     |    1|   0|    1|          0|
+    |ap_rst_n_inv                                              |    1|   0|    1|          0|
+    |ap_rst_reg_1                                              |    1|   0|    1|          0|
+    |ap_rst_reg_2                                              |    1|   0|    1|          0|
+    |ap_str_blocking_n_reg                                     |    1|   0|    1|          0|
+    |grp_krnl_stream_vmult_Pipeline_vmult_fu_111_ap_start_reg  |    1|   0|    1|          0|
+    |icmp_ln32_reg_189                                         |    1|   0|    1|          0|
+    |trunc_ln32_1_reg_203                                      |   62|   0|   62|          0|
+    |trunc_ln32_reg_209                                        |   31|   0|   31|          0|
+    |trunc_ln_reg_193                                          |   62|   0|   62|          0|
+    +----------------------------------------------------------+-----+----+-----+-----------+
+    |Total                                                     |  305|   0|  305|          0|
+    +----------------------------------------------------------+-----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------+-----+-----+---------------+-------------------+--------------+
+|       RTL Ports       | Dir | Bits|    Protocol   |   Source Object   |    C Type    |
++-----------------------+-----+-----+---------------+-------------------+--------------+
+|s_axi_control_AWVALID  |   in|    1|          s_axi|            control|        scalar|
+|s_axi_control_AWREADY  |  out|    1|          s_axi|            control|        scalar|
+|s_axi_control_AWADDR   |   in|    6|          s_axi|            control|        scalar|
+|s_axi_control_WVALID   |   in|    1|          s_axi|            control|        scalar|
+|s_axi_control_WREADY   |  out|    1|          s_axi|            control|        scalar|
+|s_axi_control_WDATA    |   in|   32|          s_axi|            control|        scalar|
+|s_axi_control_WSTRB    |   in|    4|          s_axi|            control|        scalar|
+|s_axi_control_ARVALID  |   in|    1|          s_axi|            control|        scalar|
+|s_axi_control_ARREADY  |  out|    1|          s_axi|            control|        scalar|
+|s_axi_control_ARADDR   |   in|    6|          s_axi|            control|        scalar|
+|s_axi_control_RVALID   |  out|    1|          s_axi|            control|        scalar|
+|s_axi_control_RREADY   |   in|    1|          s_axi|            control|        scalar|
+|s_axi_control_RDATA    |  out|   32|          s_axi|            control|        scalar|
+|s_axi_control_RRESP    |  out|    2|          s_axi|            control|        scalar|
+|s_axi_control_BVALID   |  out|    1|          s_axi|            control|        scalar|
+|s_axi_control_BREADY   |   in|    1|          s_axi|            control|        scalar|
+|s_axi_control_BRESP    |  out|    2|          s_axi|            control|        scalar|
+|ap_clk                 |   in|    1|  ap_ctrl_chain|  krnl_stream_vmult|  return value|
+|ap_rst_n               |   in|    1|  ap_ctrl_chain|  krnl_stream_vmult|  return value|
+|event_done             |  out|    1|  ap_ctrl_chain|  krnl_stream_vmult|  return value|
+|interrupt              |  out|    1|  ap_ctrl_chain|  krnl_stream_vmult|  return value|
+|event_start            |  out|    1|  ap_ctrl_chain|  krnl_stream_vmult|  return value|
+|stall_start_ext        |  out|    1|  ap_ctrl_chain|  krnl_stream_vmult|  return value|
+|stall_done_ext         |  out|    1|  ap_ctrl_chain|  krnl_stream_vmult|  return value|
+|stall_start_str        |  out|    1|  ap_ctrl_chain|  krnl_stream_vmult|  return value|
+|stall_done_str         |  out|    1|  ap_ctrl_chain|  krnl_stream_vmult|  return value|
+|stall_start_int        |  out|    1|  ap_ctrl_chain|  krnl_stream_vmult|  return value|
+|stall_done_int         |  out|    1|  ap_ctrl_chain|  krnl_stream_vmult|  return value|
+|m_axi_gmem_AWVALID     |  out|    1|          m_axi|               gmem|       pointer|
+|m_axi_gmem_AWREADY     |   in|    1|          m_axi|               gmem|       pointer|
+|m_axi_gmem_AWADDR      |  out|   64|          m_axi|               gmem|       pointer|
+|m_axi_gmem_AWID        |  out|    1|          m_axi|               gmem|       pointer|
+|m_axi_gmem_AWLEN       |  out|    8|          m_axi|               gmem|       pointer|
+|m_axi_gmem_AWSIZE      |  out|    3|          m_axi|               gmem|       pointer|
+|m_axi_gmem_AWBURST     |  out|    2|          m_axi|               gmem|       pointer|
+|m_axi_gmem_AWLOCK      |  out|    2|          m_axi|               gmem|       pointer|
+|m_axi_gmem_AWCACHE     |  out|    4|          m_axi|               gmem|       pointer|
+|m_axi_gmem_AWPROT      |  out|    3|          m_axi|               gmem|       pointer|
+|m_axi_gmem_AWQOS       |  out|    4|          m_axi|               gmem|       pointer|
+|m_axi_gmem_AWREGION    |  out|    4|          m_axi|               gmem|       pointer|
+|m_axi_gmem_AWUSER      |  out|    1|          m_axi|               gmem|       pointer|
+|m_axi_gmem_WVALID      |  out|    1|          m_axi|               gmem|       pointer|
+|m_axi_gmem_WREADY      |   in|    1|          m_axi|               gmem|       pointer|
+|m_axi_gmem_WDATA       |  out|   32|          m_axi|               gmem|       pointer|
+|m_axi_gmem_WSTRB       |  out|    4|          m_axi|               gmem|       pointer|
+|m_axi_gmem_WLAST       |  out|    1|          m_axi|               gmem|       pointer|
+|m_axi_gmem_WID         |  out|    1|          m_axi|               gmem|       pointer|
+|m_axi_gmem_WUSER       |  out|    1|          m_axi|               gmem|       pointer|
+|m_axi_gmem_ARVALID     |  out|    1|          m_axi|               gmem|       pointer|
+|m_axi_gmem_ARREADY     |   in|    1|          m_axi|               gmem|       pointer|
+|m_axi_gmem_ARADDR      |  out|   64|          m_axi|               gmem|       pointer|
+|m_axi_gmem_ARID        |  out|    1|          m_axi|               gmem|       pointer|
+|m_axi_gmem_ARLEN       |  out|    8|          m_axi|               gmem|       pointer|
+|m_axi_gmem_ARSIZE      |  out|    3|          m_axi|               gmem|       pointer|
+|m_axi_gmem_ARBURST     |  out|    2|          m_axi|               gmem|       pointer|
+|m_axi_gmem_ARLOCK      |  out|    2|          m_axi|               gmem|       pointer|
+|m_axi_gmem_ARCACHE     |  out|    4|          m_axi|               gmem|       pointer|
+|m_axi_gmem_ARPROT      |  out|    3|          m_axi|               gmem|       pointer|
+|m_axi_gmem_ARQOS       |  out|    4|          m_axi|               gmem|       pointer|
+|m_axi_gmem_ARREGION    |  out|    4|          m_axi|               gmem|       pointer|
+|m_axi_gmem_ARUSER      |  out|    1|          m_axi|               gmem|       pointer|
+|m_axi_gmem_RVALID      |   in|    1|          m_axi|               gmem|       pointer|
+|m_axi_gmem_RREADY      |  out|    1|          m_axi|               gmem|       pointer|
+|m_axi_gmem_RDATA       |   in|   32|          m_axi|               gmem|       pointer|
+|m_axi_gmem_RLAST       |   in|    1|          m_axi|               gmem|       pointer|
+|m_axi_gmem_RID         |   in|    1|          m_axi|               gmem|       pointer|
+|m_axi_gmem_RUSER       |   in|    1|          m_axi|               gmem|       pointer|
+|m_axi_gmem_RRESP       |   in|    2|          m_axi|               gmem|       pointer|
+|m_axi_gmem_BVALID      |   in|    1|          m_axi|               gmem|       pointer|
+|m_axi_gmem_BREADY      |  out|    1|          m_axi|               gmem|       pointer|
+|m_axi_gmem_BRESP       |   in|    2|          m_axi|               gmem|       pointer|
+|m_axi_gmem_BID         |   in|    1|          m_axi|               gmem|       pointer|
+|m_axi_gmem_BUSER       |   in|    1|          m_axi|               gmem|       pointer|
+|in2_TDATA              |   in|   32|           axis|       in2_V_data_V|       pointer|
+|in2_TVALID             |   in|    1|           axis|       in2_V_last_V|       pointer|
+|in2_TREADY             |  out|    1|           axis|       in2_V_last_V|       pointer|
+|in2_TLAST              |   in|    1|           axis|       in2_V_last_V|       pointer|
+|in2_TKEEP              |   in|    4|           axis|       in2_V_keep_V|       pointer|
+|in2_TSTRB              |   in|    4|           axis|       in2_V_strb_V|       pointer|
++-----------------------+-----+-----+---------------+-------------------+--------------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 2
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 141
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 141 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 24 
+24 --> 25 
+25 --> 26 
+26 --> 27 
+27 --> 28 
+28 --> 29 
+29 --> 30 
+30 --> 31 
+31 --> 32 
+32 --> 33 
+33 --> 34 
+34 --> 35 
+35 --> 36 
+36 --> 37 
+37 --> 38 
+38 --> 39 
+39 --> 40 
+40 --> 41 
+41 --> 42 
+42 --> 43 
+43 --> 44 
+44 --> 45 
+45 --> 46 
+46 --> 47 
+47 --> 48 
+48 --> 49 
+49 --> 50 
+50 --> 51 
+51 --> 52 
+52 --> 53 
+53 --> 54 
+54 --> 55 
+55 --> 56 
+56 --> 57 
+57 --> 58 
+58 --> 59 
+59 --> 60 
+60 --> 61 
+61 --> 62 
+62 --> 63 
+63 --> 64 
+64 --> 65 
+65 --> 66 
+66 --> 67 
+67 --> 68 
+68 --> 69 
+69 --> 70 
+70 --> 71 
+71 --> 72 
+72 --> 73 
+73 --> 74 
+74 --> 75 
+75 --> 76 
+76 --> 77 
+77 --> 78 
+78 --> 79 
+79 --> 80 
+80 --> 81 
+81 --> 82 
+82 --> 83 
+83 --> 84 
+84 --> 85 
+85 --> 86 
+86 --> 87 
+87 --> 88 
+88 --> 89 
+89 --> 90 
+90 --> 91 
+91 --> 92 
+92 --> 93 
+93 --> 94 
+94 --> 95 
+95 --> 96 
+96 --> 97 
+97 --> 98 
+98 --> 99 
+99 --> 100 
+100 --> 101 
+101 --> 102 
+102 --> 103 
+103 --> 104 
+104 --> 105 
+105 --> 106 
+106 --> 107 
+107 --> 108 
+108 --> 109 
+109 --> 110 
+110 --> 111 
+111 --> 112 
+112 --> 113 
+113 --> 114 
+114 --> 115 
+115 --> 116 
+116 --> 117 
+117 --> 118 
+118 --> 119 
+119 --> 120 
+120 --> 121 
+121 --> 122 
+122 --> 123 
+123 --> 124 
+124 --> 125 
+125 --> 126 
+126 --> 127 
+127 --> 128 
+128 --> 129 
+129 --> 130 
+130 --> 131 
+131 --> 132 
+132 --> 133 
+133 --> 134 
+134 --> 135 
+135 --> 136 
+136 --> 137 
+137 --> 138 
+138 --> 139 
+139 --> 140 
+140 --> 141 
+141 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.85>
+ST_1 : Operation 142 [1/1] (1.00ns)   --->   "%size_read = read i32 @_ssdm_op_Read.ap_none.i32, i32 %size" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:26]   --->   Operation 142 'read' 'size_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 143 [1/1] (1.00ns)   --->   "%in1_read = read i64 @_ssdm_op_Read.ap_none.i64, i64 %in1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:26]   --->   Operation 143 'read' 'in1_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 144 [1/1] (0.85ns)   --->   "%icmp_ln32 = icmp_sgt  i32 %size_read, i32 0" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 144 'icmp' 'icmp_ln32' <Predicate = true> <Delay = 0.85> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+
+State 2 <SV = 1> <Delay = 2.92>
+ST_2 : Operation 145 [1/1] (0.00ns)   --->   "%spectopmodule_ln0 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_10"   --->   Operation 145 'spectopmodule' 'spectopmodule_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 146 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 0, void @empty_11, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13"   --->   Operation 146 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 147 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem, void @empty, i32 0, i32 0, void @empty_13, i32 64, i32 0, void @empty_0, void @empty_1, void @empty_13, i32 16, i32 16, i32 16, i32 16, void @empty_13, void @empty_13"   --->   Operation 147 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 148 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %gmem"   --->   Operation 148 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 149 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %in1, void @empty_2, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty_3, void @empty_4, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_5"   --->   Operation 149 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 150 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %in1, void @empty_14, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_5"   --->   Operation 150 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 151 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %in2_V_data_V, i4 %in2_V_keep_V, i4 %in2_V_strb_V, i1 %in2_V_last_V, void @empty_6, i32 1, i32 1, void @empty_7, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13"   --->   Operation 151 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 152 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %in2_V_data_V"   --->   Operation 152 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 153 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i4 %in2_V_keep_V"   --->   Operation 153 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 154 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i4 %in2_V_strb_V"   --->   Operation 154 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 155 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %in2_V_last_V"   --->   Operation 155 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 156 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %out_r, void @empty_2, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty_3, void @empty_8, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_5"   --->   Operation 156 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 157 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %out_r, void @empty_14, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_5"   --->   Operation 157 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 158 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %size"   --->   Operation 158 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 159 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %size, void @empty_2, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty_3, void @empty_9, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13"   --->   Operation 159 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 160 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %size, void @empty_14, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13"   --->   Operation 160 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 161 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 0, void @empty_2, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty_3, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13"   --->   Operation 161 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 162 [1/1] (1.00ns)   --->   "%out_read = read i64 @_ssdm_op_Read.ap_none.i64, i64 %out_r" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:26]   --->   Operation 162 'read' 'out_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_2 : Operation 163 [1/1] (0.00ns)   --->   "%br_ln32 = br i1 %icmp_ln32, void %._crit_edge, void %.lr.ph" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 163 'br' 'br_ln32' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 164 [1/1] (0.00ns)   --->   "%trunc_ln = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %in1_read, i32 2, i32 63" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 164 'partselect' 'trunc_ln' <Predicate = (icmp_ln32)> <Delay = 0.00>
+ST_2 : Operation 165 [1/1] (0.00ns)   --->   "%sext_ln32 = sext i62 %trunc_ln" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 165 'sext' 'sext_ln32' <Predicate = (icmp_ln32)> <Delay = 0.00>
+ST_2 : Operation 166 [1/1] (0.00ns)   --->   "%gmem_addr = getelementptr i32 %gmem, i64 %sext_ln32" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 166 'getelementptr' 'gmem_addr' <Predicate = (icmp_ln32)> <Delay = 0.00>
+ST_2 : Operation 167 [70/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 167 'readreq' 'empty' <Predicate = (icmp_ln32)> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_2 : Operation 168 [1/1] (0.00ns)   --->   "%trunc_ln32_1 = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %out_read, i32 2, i32 63" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 168 'partselect' 'trunc_ln32_1' <Predicate = (icmp_ln32)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 2.92>
+ST_3 : Operation 169 [69/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 169 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 4 <SV = 3> <Delay = 2.92>
+ST_4 : Operation 170 [68/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 170 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 5 <SV = 4> <Delay = 2.92>
+ST_5 : Operation 171 [67/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 171 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 6 <SV = 5> <Delay = 2.92>
+ST_6 : Operation 172 [66/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 172 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 7 <SV = 6> <Delay = 2.92>
+ST_7 : Operation 173 [65/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 173 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 8 <SV = 7> <Delay = 2.92>
+ST_8 : Operation 174 [64/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 174 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 9 <SV = 8> <Delay = 2.92>
+ST_9 : Operation 175 [63/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 175 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 10 <SV = 9> <Delay = 2.92>
+ST_10 : Operation 176 [62/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 176 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 11 <SV = 10> <Delay = 2.92>
+ST_11 : Operation 177 [61/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 177 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 12 <SV = 11> <Delay = 2.92>
+ST_12 : Operation 178 [60/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 178 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 13 <SV = 12> <Delay = 2.92>
+ST_13 : Operation 179 [59/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 179 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 14 <SV = 13> <Delay = 2.92>
+ST_14 : Operation 180 [58/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 180 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 15 <SV = 14> <Delay = 2.92>
+ST_15 : Operation 181 [57/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 181 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 16 <SV = 15> <Delay = 2.92>
+ST_16 : Operation 182 [56/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 182 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 17 <SV = 16> <Delay = 2.92>
+ST_17 : Operation 183 [55/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 183 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 18 <SV = 17> <Delay = 2.92>
+ST_18 : Operation 184 [54/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 184 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 19 <SV = 18> <Delay = 2.92>
+ST_19 : Operation 185 [53/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 185 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 20 <SV = 19> <Delay = 2.92>
+ST_20 : Operation 186 [52/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 186 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 21 <SV = 20> <Delay = 2.92>
+ST_21 : Operation 187 [51/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 187 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 22 <SV = 21> <Delay = 2.92>
+ST_22 : Operation 188 [50/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 188 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 23 <SV = 22> <Delay = 2.92>
+ST_23 : Operation 189 [49/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 189 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 24 <SV = 23> <Delay = 2.92>
+ST_24 : Operation 190 [48/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 190 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 25 <SV = 24> <Delay = 2.92>
+ST_25 : Operation 191 [47/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 191 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 26 <SV = 25> <Delay = 2.92>
+ST_26 : Operation 192 [46/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 192 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 27 <SV = 26> <Delay = 2.92>
+ST_27 : Operation 193 [45/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 193 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 28 <SV = 27> <Delay = 2.92>
+ST_28 : Operation 194 [44/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 194 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 29 <SV = 28> <Delay = 2.92>
+ST_29 : Operation 195 [43/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 195 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 30 <SV = 29> <Delay = 2.92>
+ST_30 : Operation 196 [42/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 196 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 31 <SV = 30> <Delay = 2.92>
+ST_31 : Operation 197 [41/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 197 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 32 <SV = 31> <Delay = 2.92>
+ST_32 : Operation 198 [40/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 198 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 33 <SV = 32> <Delay = 2.92>
+ST_33 : Operation 199 [39/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 199 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 34 <SV = 33> <Delay = 2.92>
+ST_34 : Operation 200 [38/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 200 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 35 <SV = 34> <Delay = 2.92>
+ST_35 : Operation 201 [37/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 201 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 36 <SV = 35> <Delay = 2.92>
+ST_36 : Operation 202 [36/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 202 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 37 <SV = 36> <Delay = 2.92>
+ST_37 : Operation 203 [35/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 203 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 38 <SV = 37> <Delay = 2.92>
+ST_38 : Operation 204 [34/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 204 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 39 <SV = 38> <Delay = 2.92>
+ST_39 : Operation 205 [33/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 205 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 40 <SV = 39> <Delay = 2.92>
+ST_40 : Operation 206 [32/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 206 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 41 <SV = 40> <Delay = 2.92>
+ST_41 : Operation 207 [31/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 207 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 42 <SV = 41> <Delay = 2.92>
+ST_42 : Operation 208 [30/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 208 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 43 <SV = 42> <Delay = 2.92>
+ST_43 : Operation 209 [29/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 209 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 44 <SV = 43> <Delay = 2.92>
+ST_44 : Operation 210 [28/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 210 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 45 <SV = 44> <Delay = 2.92>
+ST_45 : Operation 211 [27/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 211 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 46 <SV = 45> <Delay = 2.92>
+ST_46 : Operation 212 [26/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 212 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 47 <SV = 46> <Delay = 2.92>
+ST_47 : Operation 213 [25/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 213 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 48 <SV = 47> <Delay = 2.92>
+ST_48 : Operation 214 [24/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 214 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 49 <SV = 48> <Delay = 2.92>
+ST_49 : Operation 215 [23/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 215 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 50 <SV = 49> <Delay = 2.92>
+ST_50 : Operation 216 [22/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 216 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 51 <SV = 50> <Delay = 2.92>
+ST_51 : Operation 217 [21/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 217 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 52 <SV = 51> <Delay = 2.92>
+ST_52 : Operation 218 [20/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 218 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 53 <SV = 52> <Delay = 2.92>
+ST_53 : Operation 219 [19/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 219 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 54 <SV = 53> <Delay = 2.92>
+ST_54 : Operation 220 [18/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 220 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 55 <SV = 54> <Delay = 2.92>
+ST_55 : Operation 221 [17/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 221 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 56 <SV = 55> <Delay = 2.92>
+ST_56 : Operation 222 [16/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 222 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 57 <SV = 56> <Delay = 2.92>
+ST_57 : Operation 223 [15/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 223 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 58 <SV = 57> <Delay = 2.92>
+ST_58 : Operation 224 [14/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 224 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 59 <SV = 58> <Delay = 2.92>
+ST_59 : Operation 225 [13/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 225 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 60 <SV = 59> <Delay = 2.92>
+ST_60 : Operation 226 [12/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 226 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 61 <SV = 60> <Delay = 2.92>
+ST_61 : Operation 227 [11/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 227 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 62 <SV = 61> <Delay = 2.92>
+ST_62 : Operation 228 [10/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 228 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 63 <SV = 62> <Delay = 2.92>
+ST_63 : Operation 229 [9/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 229 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 64 <SV = 63> <Delay = 2.92>
+ST_64 : Operation 230 [8/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 230 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 65 <SV = 64> <Delay = 2.92>
+ST_65 : Operation 231 [7/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 231 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 66 <SV = 65> <Delay = 2.92>
+ST_66 : Operation 232 [6/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 232 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 67 <SV = 66> <Delay = 2.92>
+ST_67 : Operation 233 [5/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 233 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 68 <SV = 67> <Delay = 2.92>
+ST_68 : Operation 234 [4/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 234 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 69 <SV = 68> <Delay = 2.92>
+ST_69 : Operation 235 [3/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 235 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 70 <SV = 69> <Delay = 2.92>
+ST_70 : Operation 236 [2/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 236 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 71 <SV = 70> <Delay = 2.92>
+ST_71 : Operation 237 [1/1] (0.00ns)   --->   "%trunc_ln32 = trunc i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 237 'trunc' 'trunc_ln32' <Predicate = true> <Delay = 0.00>
+ST_71 : Operation 238 [1/70] (2.92ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i64 %gmem_addr, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 238 'readreq' 'empty' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_71 : Operation 239 [1/1] (0.00ns)   --->   "%sext_ln32_1 = sext i62 %trunc_ln32_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 239 'sext' 'sext_ln32_1' <Predicate = true> <Delay = 0.00>
+ST_71 : Operation 240 [1/1] (0.00ns)   --->   "%gmem_addr_1 = getelementptr i32 %gmem, i64 %sext_ln32_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 240 'getelementptr' 'gmem_addr_1' <Predicate = true> <Delay = 0.00>
+ST_71 : Operation 241 [1/1] (2.92ns)   --->   "%empty_21 = writereq i1 @_ssdm_op_WriteReq.m_axi.p1i32, i64 %gmem_addr_1, i32 %size_read" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 241 'writereq' 'empty_21' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 72 <SV = 71> <Delay = 1.23>
+ST_72 : Operation 242 [1/1] (0.00ns)   --->   "%empty_22 = wait i32 @_ssdm_op_Wait"   --->   Operation 242 'wait' 'empty_22' <Predicate = true> <Delay = 0.00>
+ST_72 : Operation 243 [2/2] (1.23ns)   --->   "%call_ln32 = call void @krnl_stream_vmult_Pipeline_vmult, i32 %gmem, i62 %trunc_ln32_1, i62 %trunc_ln, i31 %trunc_ln32, i32 %in2_V_data_V, i4 %in2_V_keep_V, i4 %in2_V_strb_V, i1 %in2_V_last_V" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 243 'call' 'call_ln32' <Predicate = true> <Delay = 1.23> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 73 <SV = 72> <Delay = 0.00>
+ST_73 : Operation 244 [1/2] (0.00ns)   --->   "%call_ln32 = call void @krnl_stream_vmult_Pipeline_vmult, i32 %gmem, i62 %trunc_ln32_1, i62 %trunc_ln, i31 %trunc_ln32, i32 %in2_V_data_V, i4 %in2_V_keep_V, i4 %in2_V_strb_V, i1 %in2_V_last_V" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32]   --->   Operation 244 'call' 'call_ln32' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 74 <SV = 73> <Delay = 2.92>
+ST_74 : Operation 245 [68/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 245 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 75 <SV = 74> <Delay = 2.92>
+ST_75 : Operation 246 [67/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 246 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 76 <SV = 75> <Delay = 2.92>
+ST_76 : Operation 247 [66/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 247 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 77 <SV = 76> <Delay = 2.92>
+ST_77 : Operation 248 [65/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 248 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 78 <SV = 77> <Delay = 2.92>
+ST_78 : Operation 249 [64/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 249 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 79 <SV = 78> <Delay = 2.92>
+ST_79 : Operation 250 [63/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 250 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 80 <SV = 79> <Delay = 2.92>
+ST_80 : Operation 251 [62/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 251 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 81 <SV = 80> <Delay = 2.92>
+ST_81 : Operation 252 [61/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 252 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 82 <SV = 81> <Delay = 2.92>
+ST_82 : Operation 253 [60/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 253 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 83 <SV = 82> <Delay = 2.92>
+ST_83 : Operation 254 [59/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 254 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 84 <SV = 83> <Delay = 2.92>
+ST_84 : Operation 255 [58/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 255 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 85 <SV = 84> <Delay = 2.92>
+ST_85 : Operation 256 [57/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 256 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 86 <SV = 85> <Delay = 2.92>
+ST_86 : Operation 257 [56/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 257 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 87 <SV = 86> <Delay = 2.92>
+ST_87 : Operation 258 [55/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 258 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 88 <SV = 87> <Delay = 2.92>
+ST_88 : Operation 259 [54/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 259 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 89 <SV = 88> <Delay = 2.92>
+ST_89 : Operation 260 [53/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 260 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 90 <SV = 89> <Delay = 2.92>
+ST_90 : Operation 261 [52/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 261 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 91 <SV = 90> <Delay = 2.92>
+ST_91 : Operation 262 [51/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 262 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 92 <SV = 91> <Delay = 2.92>
+ST_92 : Operation 263 [50/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 263 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 93 <SV = 92> <Delay = 2.92>
+ST_93 : Operation 264 [49/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 264 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 94 <SV = 93> <Delay = 2.92>
+ST_94 : Operation 265 [48/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 265 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 95 <SV = 94> <Delay = 2.92>
+ST_95 : Operation 266 [47/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 266 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 96 <SV = 95> <Delay = 2.92>
+ST_96 : Operation 267 [46/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 267 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 97 <SV = 96> <Delay = 2.92>
+ST_97 : Operation 268 [45/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 268 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 98 <SV = 97> <Delay = 2.92>
+ST_98 : Operation 269 [44/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 269 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 99 <SV = 98> <Delay = 2.92>
+ST_99 : Operation 270 [43/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 270 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 100 <SV = 99> <Delay = 2.92>
+ST_100 : Operation 271 [42/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 271 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 101 <SV = 100> <Delay = 2.92>
+ST_101 : Operation 272 [41/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 272 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 102 <SV = 101> <Delay = 2.92>
+ST_102 : Operation 273 [40/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 273 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 103 <SV = 102> <Delay = 2.92>
+ST_103 : Operation 274 [39/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 274 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 104 <SV = 103> <Delay = 2.92>
+ST_104 : Operation 275 [38/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 275 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 105 <SV = 104> <Delay = 2.92>
+ST_105 : Operation 276 [37/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 276 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 106 <SV = 105> <Delay = 2.92>
+ST_106 : Operation 277 [36/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 277 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 107 <SV = 106> <Delay = 2.92>
+ST_107 : Operation 278 [35/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 278 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 108 <SV = 107> <Delay = 2.92>
+ST_108 : Operation 279 [34/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 279 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 109 <SV = 108> <Delay = 2.92>
+ST_109 : Operation 280 [33/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 280 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 110 <SV = 109> <Delay = 2.92>
+ST_110 : Operation 281 [32/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 281 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 111 <SV = 110> <Delay = 2.92>
+ST_111 : Operation 282 [31/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 282 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 112 <SV = 111> <Delay = 2.92>
+ST_112 : Operation 283 [30/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 283 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 113 <SV = 112> <Delay = 2.92>
+ST_113 : Operation 284 [29/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 284 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 114 <SV = 113> <Delay = 2.92>
+ST_114 : Operation 285 [28/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 285 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 115 <SV = 114> <Delay = 2.92>
+ST_115 : Operation 286 [27/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 286 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 116 <SV = 115> <Delay = 2.92>
+ST_116 : Operation 287 [26/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 287 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 117 <SV = 116> <Delay = 2.92>
+ST_117 : Operation 288 [25/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 288 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 118 <SV = 117> <Delay = 2.92>
+ST_118 : Operation 289 [24/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 289 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 119 <SV = 118> <Delay = 2.92>
+ST_119 : Operation 290 [23/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 290 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 120 <SV = 119> <Delay = 2.92>
+ST_120 : Operation 291 [22/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 291 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 121 <SV = 120> <Delay = 2.92>
+ST_121 : Operation 292 [21/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 292 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 122 <SV = 121> <Delay = 2.92>
+ST_122 : Operation 293 [20/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 293 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 123 <SV = 122> <Delay = 2.92>
+ST_123 : Operation 294 [19/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 294 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 124 <SV = 123> <Delay = 2.92>
+ST_124 : Operation 295 [18/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 295 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 125 <SV = 124> <Delay = 2.92>
+ST_125 : Operation 296 [17/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 296 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 126 <SV = 125> <Delay = 2.92>
+ST_126 : Operation 297 [16/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 297 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 127 <SV = 126> <Delay = 2.92>
+ST_127 : Operation 298 [15/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 298 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 128 <SV = 127> <Delay = 2.92>
+ST_128 : Operation 299 [14/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 299 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 129 <SV = 128> <Delay = 2.92>
+ST_129 : Operation 300 [13/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 300 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 130 <SV = 129> <Delay = 2.92>
+ST_130 : Operation 301 [12/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 301 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 131 <SV = 130> <Delay = 2.92>
+ST_131 : Operation 302 [11/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 302 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 132 <SV = 131> <Delay = 2.92>
+ST_132 : Operation 303 [10/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 303 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 133 <SV = 132> <Delay = 2.92>
+ST_133 : Operation 304 [9/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 304 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 134 <SV = 133> <Delay = 2.92>
+ST_134 : Operation 305 [8/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 305 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 135 <SV = 134> <Delay = 2.92>
+ST_135 : Operation 306 [7/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 306 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 136 <SV = 135> <Delay = 2.92>
+ST_136 : Operation 307 [6/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 307 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 137 <SV = 136> <Delay = 2.92>
+ST_137 : Operation 308 [5/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 308 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 138 <SV = 137> <Delay = 2.92>
+ST_138 : Operation 309 [4/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 309 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 139 <SV = 138> <Delay = 2.92>
+ST_139 : Operation 310 [3/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 310 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 140 <SV = 139> <Delay = 2.92>
+ST_140 : Operation 311 [2/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 311 'writeresp' 'empty_23' <Predicate = true> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 141 <SV = 140> <Delay = 2.92>
+ST_141 : Operation 312 [1/68] (2.92ns)   --->   "%empty_23 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i64 %gmem_addr_1" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 312 'writeresp' 'empty_23' <Predicate = (icmp_ln32)> <Delay = 2.92> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_141 : Operation 313 [1/1] (0.00ns)   --->   "%br_ln37 = br void %._crit_edge" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 313 'br' 'br_ln37' <Predicate = (icmp_ln32)> <Delay = 0.00>
+ST_141 : Operation 314 [1/1] (0.00ns)   --->   "%ret_ln37 = ret" [/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:37]   --->   Operation 314 'ret' 'ret_ln37' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 0
+- Is one-state seq: 0
+- Is datapath-only: 0
+- Is pipelined: 0
+- Is top level: 1
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_chain:ce=0
+Port [ gmem]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=2; type=4; pingpong=0; private_global=0; IO mode=m_axi:ce=0
+Port [ in1]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ in2_V_data_V]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=axis:ce=0
+Port [ in2_V_keep_V]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=axis:ce=0
+Port [ in2_V_strb_V]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=axis:ce=0
+Port [ in2_V_last_V]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=axis:ce=0
+Port [ out_r]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ size]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+size_read         (read         ) [ 0011111111111111111111111111111111111111111111111111111111111111111111110000000000000000000000000000000000000000000000000000000000000000000000]
+in1_read          (read         ) [ 0010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+icmp_ln32         (icmp         ) [ 0011111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111]
+spectopmodule_ln0 (spectopmodule) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+specinterface_ln0 (specinterface) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+specinterface_ln0 (specinterface) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+specbitsmap_ln0   (specbitsmap  ) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+specinterface_ln0 (specinterface) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+specinterface_ln0 (specinterface) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+specinterface_ln0 (specinterface) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+specbitsmap_ln0   (specbitsmap  ) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+specbitsmap_ln0   (specbitsmap  ) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+specbitsmap_ln0   (specbitsmap  ) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+specbitsmap_ln0   (specbitsmap  ) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+specinterface_ln0 (specinterface) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+specinterface_ln0 (specinterface) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+specbitsmap_ln0   (specbitsmap  ) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+specinterface_ln0 (specinterface) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+specinterface_ln0 (specinterface) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+specinterface_ln0 (specinterface) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+out_read          (read         ) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+br_ln32           (br           ) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+trunc_ln          (partselect   ) [ 0001111111111111111111111111111111111111111111111111111111111111111111111100000000000000000000000000000000000000000000000000000000000000000000]
+sext_ln32         (sext         ) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+gmem_addr         (getelementptr) [ 0001111111111111111111111111111111111111111111111111111111111111111111110000000000000000000000000000000000000000000000000000000000000000000000]
+trunc_ln32_1      (partselect   ) [ 0001111111111111111111111111111111111111111111111111111111111111111111111100000000000000000000000000000000000000000000000000000000000000000000]
+trunc_ln32        (trunc        ) [ 0000000000000000000000000000000000000000000000000000000000000000000000001100000000000000000000000000000000000000000000000000000000000000000000]
+empty             (readreq      ) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+sext_ln32_1       (sext         ) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+gmem_addr_1       (getelementptr) [ 0000000000000000000000000000000000000000000000000000000000000000000000001111111111111111111111111111111111111111111111111111111111111111111111]
+empty_21          (writereq     ) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+empty_22          (wait         ) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+call_ln32         (call         ) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+empty_23          (writeresp    ) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+br_ln37           (br           ) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+ret_ln37          (ret          ) [ 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="gmem">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="gmem"/></StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1000" name="in1">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="in1"/></StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1000" name="in2_V_data_V">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="in2_V_data_V"/></StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1000" name="in2_V_keep_V">
+<pin_list>
+<pin id="7" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="in2_V_keep_V"/></StgValue>
+</bind>
+</comp>
+
+<comp id="8" class="1000" name="in2_V_strb_V">
+<pin_list>
+<pin id="9" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="in2_V_strb_V"/></StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1000" name="in2_V_last_V">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="in2_V_last_V"/></StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1000" name="out_r">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="out_r"/></StgValue>
+</bind>
+</comp>
+
+<comp id="14" class="1000" name="size">
+<pin_list>
+<pin id="15" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="size"/></StgValue>
+</bind>
+</comp>
+
+<comp id="16" class="1001" name="const_16">
+<pin_list>
+<pin id="17" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_none.i32"/></StgValue>
+</bind>
+</comp>
+
+<comp id="18" class="1001" name="const_18">
+<pin_list>
+<pin id="19" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_none.i64"/></StgValue>
+</bind>
+</comp>
+
+<comp id="20" class="1001" name="const_20">
+<pin_list>
+<pin id="21" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="22" class="1001" name="const_22">
+<pin_list>
+<pin id="23" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecTopModule"/></StgValue>
+</bind>
+</comp>
+
+<comp id="24" class="1001" name="const_24">
+<pin_list>
+<pin id="25" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_10"/></StgValue>
+</bind>
+</comp>
+
+<comp id="26" class="1001" name="const_26">
+<pin_list>
+<pin id="27" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
+</bind>
+</comp>
+
+<comp id="28" class="1001" name="const_28">
+<pin_list>
+<pin id="29" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_11"/></StgValue>
+</bind>
+</comp>
+
+<comp id="30" class="1001" name="const_30">
+<pin_list>
+<pin id="31" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_13"/></StgValue>
+</bind>
+</comp>
+
+<comp id="32" class="1001" name="const_32">
+<pin_list>
+<pin id="33" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty"/></StgValue>
+</bind>
+</comp>
+
+<comp id="34" class="1001" name="const_34">
+<pin_list>
+<pin id="35" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="36" class="1001" name="const_36">
+<pin_list>
+<pin id="37" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_0"/></StgValue>
+</bind>
+</comp>
+
+<comp id="38" class="1001" name="const_38">
+<pin_list>
+<pin id="39" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_1"/></StgValue>
+</bind>
+</comp>
+
+<comp id="40" class="1001" name="const_40">
+<pin_list>
+<pin id="41" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="42" class="1001" name="const_42">
+<pin_list>
+<pin id="43" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecBitsMap"/></StgValue>
+</bind>
+</comp>
+
+<comp id="44" class="1001" name="const_44">
+<pin_list>
+<pin id="45" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_2"/></StgValue>
+</bind>
+</comp>
+
+<comp id="46" class="1001" name="const_46">
+<pin_list>
+<pin id="47" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_3"/></StgValue>
+</bind>
+</comp>
+
+<comp id="48" class="1001" name="const_48">
+<pin_list>
+<pin id="49" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_4"/></StgValue>
+</bind>
+</comp>
+
+<comp id="50" class="1001" name="const_50">
+<pin_list>
+<pin id="51" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_5"/></StgValue>
+</bind>
+</comp>
+
+<comp id="52" class="1001" name="const_52">
+<pin_list>
+<pin id="53" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_14"/></StgValue>
+</bind>
+</comp>
+
+<comp id="54" class="1001" name="const_54">
+<pin_list>
+<pin id="55" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_6"/></StgValue>
+</bind>
+</comp>
+
+<comp id="56" class="1001" name="const_56">
+<pin_list>
+<pin id="57" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="58" class="1001" name="const_58">
+<pin_list>
+<pin id="59" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_7"/></StgValue>
+</bind>
+</comp>
+
+<comp id="60" class="1001" name="const_60">
+<pin_list>
+<pin id="61" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_8"/></StgValue>
+</bind>
+</comp>
+
+<comp id="62" class="1001" name="const_62">
+<pin_list>
+<pin id="63" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_9"/></StgValue>
+</bind>
+</comp>
+
+<comp id="64" class="1001" name="const_64">
+<pin_list>
+<pin id="65" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_PartSelect.i62.i64.i32.i32"/></StgValue>
+</bind>
+</comp>
+
+<comp id="66" class="1001" name="const_66">
+<pin_list>
+<pin id="67" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="68" class="1001" name="const_68">
+<pin_list>
+<pin id="69" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="70" class="1001" name="const_70">
+<pin_list>
+<pin id="71" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_ReadReq.m_axi.p1i32"/></StgValue>
+</bind>
+</comp>
+
+<comp id="72" class="1001" name="const_72">
+<pin_list>
+<pin id="73" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_WriteReq.m_axi.p1i32"/></StgValue>
+</bind>
+</comp>
+
+<comp id="74" class="1001" name="const_74">
+<pin_list>
+<pin id="75" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Wait"/></StgValue>
+</bind>
+</comp>
+
+<comp id="76" class="1001" name="const_76">
+<pin_list>
+<pin id="77" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="krnl_stream_vmult_Pipeline_vmult"/></StgValue>
+</bind>
+</comp>
+
+<comp id="78" class="1001" name="const_78">
+<pin_list>
+<pin id="79" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_WriteResp.m_axi.p1i32"/></StgValue>
+</bind>
+</comp>
+
+<comp id="80" class="1004" name="size_read_read_fu_80">
+<pin_list>
+<pin id="81" dir="0" index="0" bw="32" slack="0"/>
+<pin id="82" dir="0" index="1" bw="32" slack="0"/>
+<pin id="83" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="size_read/1 "/>
+</bind>
+</comp>
+
+<comp id="86" class="1004" name="in1_read_read_fu_86">
+<pin_list>
+<pin id="87" dir="0" index="0" bw="64" slack="0"/>
+<pin id="88" dir="0" index="1" bw="64" slack="0"/>
+<pin id="89" dir="1" index="2" bw="64" slack="1"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="in1_read/1 "/>
+</bind>
+</comp>
+
+<comp id="92" class="1004" name="out_read_read_fu_92">
+<pin_list>
+<pin id="93" dir="0" index="0" bw="64" slack="0"/>
+<pin id="94" dir="0" index="1" bw="64" slack="0"/>
+<pin id="95" dir="1" index="2" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="out_read/2 "/>
+</bind>
+</comp>
+
+<comp id="98" class="1004" name="grp_readreq_fu_98">
+<pin_list>
+<pin id="99" dir="0" index="0" bw="1" slack="0"/>
+<pin id="100" dir="0" index="1" bw="32" slack="0"/>
+<pin id="101" dir="0" index="2" bw="32" slack="1"/>
+<pin id="102" dir="1" index="3" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="readreq(1154) " fcode="readreq"/>
+<opset="empty/2 "/>
+</bind>
+</comp>
+
+<comp id="104" class="1004" name="grp_writeresp_fu_104">
+<pin_list>
+<pin id="105" dir="0" index="0" bw="1" slack="0"/>
+<pin id="106" dir="0" index="1" bw="32" slack="0"/>
+<pin id="107" dir="0" index="2" bw="32" slack="70"/>
+<pin id="108" dir="1" index="3" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="writereq(1155) writeresp(1158) " fcode="writeresp"/>
+<opset="empty_21/71 empty_23/74 "/>
+</bind>
+</comp>
+
+<comp id="111" class="1004" name="grp_krnl_stream_vmult_Pipeline_vmult_fu_111">
+<pin_list>
+<pin id="112" dir="0" index="0" bw="0" slack="0"/>
+<pin id="113" dir="0" index="1" bw="32" slack="0"/>
+<pin id="114" dir="0" index="2" bw="62" slack="70"/>
+<pin id="115" dir="0" index="3" bw="62" slack="70"/>
+<pin id="116" dir="0" index="4" bw="31" slack="1"/>
+<pin id="117" dir="0" index="5" bw="32" slack="0"/>
+<pin id="118" dir="0" index="6" bw="4" slack="0"/>
+<pin id="119" dir="0" index="7" bw="4" slack="0"/>
+<pin id="120" dir="0" index="8" bw="1" slack="0"/>
+<pin id="121" dir="1" index="9" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln32/72 "/>
+</bind>
+</comp>
+
+<comp id="128" class="1004" name="icmp_ln32_fu_128">
+<pin_list>
+<pin id="129" dir="0" index="0" bw="32" slack="0"/>
+<pin id="130" dir="0" index="1" bw="32" slack="0"/>
+<pin id="131" dir="1" index="2" bw="1" slack="1"/>
+</pin_list>
+<bind>
+<opcode="icmp(45) " fcode="icmp"/>
+<opset="icmp_ln32/1 "/>
+</bind>
+</comp>
+
+<comp id="134" class="1004" name="trunc_ln_fu_134">
+<pin_list>
+<pin id="135" dir="0" index="0" bw="62" slack="0"/>
+<pin id="136" dir="0" index="1" bw="64" slack="1"/>
+<pin id="137" dir="0" index="2" bw="3" slack="0"/>
+<pin id="138" dir="0" index="3" bw="7" slack="0"/>
+<pin id="139" dir="1" index="4" bw="62" slack="0"/>
+</pin_list>
+<bind>
+<opcode="partselect(1002) " fcode="partselect"/>
+<opset="trunc_ln/2 "/>
+</bind>
+</comp>
+
+<comp id="143" class="1004" name="sext_ln32_fu_143">
+<pin_list>
+<pin id="144" dir="0" index="0" bw="62" slack="0"/>
+<pin id="145" dir="1" index="1" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="sext(35) " fcode="sext"/>
+<opset="sext_ln32/2 "/>
+</bind>
+</comp>
+
+<comp id="147" class="1004" name="gmem_addr_fu_147">
+<pin_list>
+<pin id="148" dir="0" index="0" bw="64" slack="0"/>
+<pin id="149" dir="0" index="1" bw="64" slack="0"/>
+<pin id="150" dir="1" index="2" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="gmem_addr/2 "/>
+</bind>
+</comp>
+
+<comp id="154" class="1004" name="trunc_ln32_1_fu_154">
+<pin_list>
+<pin id="155" dir="0" index="0" bw="62" slack="0"/>
+<pin id="156" dir="0" index="1" bw="64" slack="0"/>
+<pin id="157" dir="0" index="2" bw="3" slack="0"/>
+<pin id="158" dir="0" index="3" bw="7" slack="0"/>
+<pin id="159" dir="1" index="4" bw="62" slack="69"/>
+</pin_list>
+<bind>
+<opcode="partselect(1002) " fcode="partselect"/>
+<opset="trunc_ln32_1/2 "/>
+</bind>
+</comp>
+
+<comp id="164" class="1004" name="trunc_ln32_fu_164">
+<pin_list>
+<pin id="165" dir="0" index="0" bw="32" slack="70"/>
+<pin id="166" dir="1" index="1" bw="31" slack="1"/>
+</pin_list>
+<bind>
+<opcode="trunc(33) " fcode="trunc"/>
+<opset="trunc_ln32/71 "/>
+</bind>
+</comp>
+
+<comp id="167" class="1004" name="sext_ln32_1_fu_167">
+<pin_list>
+<pin id="168" dir="0" index="0" bw="62" slack="69"/>
+<pin id="169" dir="1" index="1" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="sext(35) " fcode="sext"/>
+<opset="sext_ln32_1/71 "/>
+</bind>
+</comp>
+
+<comp id="170" class="1004" name="gmem_addr_1_fu_170">
+<pin_list>
+<pin id="171" dir="0" index="0" bw="64" slack="0"/>
+<pin id="172" dir="0" index="1" bw="64" slack="0"/>
+<pin id="173" dir="1" index="2" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="gmem_addr_1/71 "/>
+</bind>
+</comp>
+
+<comp id="177" class="1005" name="size_read_reg_177">
+<pin_list>
+<pin id="178" dir="0" index="0" bw="32" slack="1"/>
+<pin id="179" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="size_read "/>
+</bind>
+</comp>
+
+<comp id="184" class="1005" name="in1_read_reg_184">
+<pin_list>
+<pin id="185" dir="0" index="0" bw="64" slack="1"/>
+<pin id="186" dir="1" index="1" bw="64" slack="1"/>
+</pin_list>
+<bind>
+<opset="in1_read "/>
+</bind>
+</comp>
+
+<comp id="189" class="1005" name="icmp_ln32_reg_189">
+<pin_list>
+<pin id="190" dir="0" index="0" bw="1" slack="1"/>
+<pin id="191" dir="1" index="1" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opset="icmp_ln32 "/>
+</bind>
+</comp>
+
+<comp id="193" class="1005" name="trunc_ln_reg_193">
+<pin_list>
+<pin id="194" dir="0" index="0" bw="62" slack="70"/>
+<pin id="195" dir="1" index="1" bw="62" slack="70"/>
+</pin_list>
+<bind>
+<opset="trunc_ln "/>
+</bind>
+</comp>
+
+<comp id="198" class="1005" name="gmem_addr_reg_198">
+<pin_list>
+<pin id="199" dir="0" index="0" bw="32" slack="1"/>
+<pin id="200" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="gmem_addr "/>
+</bind>
+</comp>
+
+<comp id="203" class="1005" name="trunc_ln32_1_reg_203">
+<pin_list>
+<pin id="204" dir="0" index="0" bw="62" slack="69"/>
+<pin id="205" dir="1" index="1" bw="62" slack="69"/>
+</pin_list>
+<bind>
+<opset="trunc_ln32_1 "/>
+</bind>
+</comp>
+
+<comp id="209" class="1005" name="trunc_ln32_reg_209">
+<pin_list>
+<pin id="210" dir="0" index="0" bw="31" slack="1"/>
+<pin id="211" dir="1" index="1" bw="31" slack="1"/>
+</pin_list>
+<bind>
+<opset="trunc_ln32 "/>
+</bind>
+</comp>
+
+<comp id="214" class="1005" name="gmem_addr_1_reg_214">
+<pin_list>
+<pin id="215" dir="0" index="0" bw="32" slack="3"/>
+<pin id="216" dir="1" index="1" bw="32" slack="3"/>
+</pin_list>
+<bind>
+<opset="gmem_addr_1 "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="84"><net_src comp="16" pin="0"/><net_sink comp="80" pin=0"/></net>
+
+<net id="85"><net_src comp="14" pin="0"/><net_sink comp="80" pin=1"/></net>
+
+<net id="90"><net_src comp="18" pin="0"/><net_sink comp="86" pin=0"/></net>
+
+<net id="91"><net_src comp="2" pin="0"/><net_sink comp="86" pin=1"/></net>
+
+<net id="96"><net_src comp="18" pin="0"/><net_sink comp="92" pin=0"/></net>
+
+<net id="97"><net_src comp="12" pin="0"/><net_sink comp="92" pin=1"/></net>
+
+<net id="103"><net_src comp="70" pin="0"/><net_sink comp="98" pin=0"/></net>
+
+<net id="109"><net_src comp="72" pin="0"/><net_sink comp="104" pin=0"/></net>
+
+<net id="110"><net_src comp="78" pin="0"/><net_sink comp="104" pin=0"/></net>
+
+<net id="122"><net_src comp="76" pin="0"/><net_sink comp="111" pin=0"/></net>
+
+<net id="123"><net_src comp="0" pin="0"/><net_sink comp="111" pin=1"/></net>
+
+<net id="124"><net_src comp="4" pin="0"/><net_sink comp="111" pin=5"/></net>
+
+<net id="125"><net_src comp="6" pin="0"/><net_sink comp="111" pin=6"/></net>
+
+<net id="126"><net_src comp="8" pin="0"/><net_sink comp="111" pin=7"/></net>
+
+<net id="127"><net_src comp="10" pin="0"/><net_sink comp="111" pin=8"/></net>
+
+<net id="132"><net_src comp="80" pin="2"/><net_sink comp="128" pin=0"/></net>
+
+<net id="133"><net_src comp="20" pin="0"/><net_sink comp="128" pin=1"/></net>
+
+<net id="140"><net_src comp="64" pin="0"/><net_sink comp="134" pin=0"/></net>
+
+<net id="141"><net_src comp="66" pin="0"/><net_sink comp="134" pin=2"/></net>
+
+<net id="142"><net_src comp="68" pin="0"/><net_sink comp="134" pin=3"/></net>
+
+<net id="146"><net_src comp="134" pin="4"/><net_sink comp="143" pin=0"/></net>
+
+<net id="151"><net_src comp="0" pin="0"/><net_sink comp="147" pin=0"/></net>
+
+<net id="152"><net_src comp="143" pin="1"/><net_sink comp="147" pin=1"/></net>
+
+<net id="153"><net_src comp="147" pin="2"/><net_sink comp="98" pin=1"/></net>
+
+<net id="160"><net_src comp="64" pin="0"/><net_sink comp="154" pin=0"/></net>
+
+<net id="161"><net_src comp="92" pin="2"/><net_sink comp="154" pin=1"/></net>
+
+<net id="162"><net_src comp="66" pin="0"/><net_sink comp="154" pin=2"/></net>
+
+<net id="163"><net_src comp="68" pin="0"/><net_sink comp="154" pin=3"/></net>
+
+<net id="174"><net_src comp="0" pin="0"/><net_sink comp="170" pin=0"/></net>
+
+<net id="175"><net_src comp="167" pin="1"/><net_sink comp="170" pin=1"/></net>
+
+<net id="176"><net_src comp="170" pin="2"/><net_sink comp="104" pin=1"/></net>
+
+<net id="180"><net_src comp="80" pin="2"/><net_sink comp="177" pin=0"/></net>
+
+<net id="181"><net_src comp="177" pin="1"/><net_sink comp="98" pin=2"/></net>
+
+<net id="182"><net_src comp="177" pin="1"/><net_sink comp="164" pin=0"/></net>
+
+<net id="183"><net_src comp="177" pin="1"/><net_sink comp="104" pin=2"/></net>
+
+<net id="187"><net_src comp="86" pin="2"/><net_sink comp="184" pin=0"/></net>
+
+<net id="188"><net_src comp="184" pin="1"/><net_sink comp="134" pin=1"/></net>
+
+<net id="192"><net_src comp="128" pin="2"/><net_sink comp="189" pin=0"/></net>
+
+<net id="196"><net_src comp="134" pin="4"/><net_sink comp="193" pin=0"/></net>
+
+<net id="197"><net_src comp="193" pin="1"/><net_sink comp="111" pin=3"/></net>
+
+<net id="201"><net_src comp="147" pin="2"/><net_sink comp="198" pin=0"/></net>
+
+<net id="202"><net_src comp="198" pin="1"/><net_sink comp="98" pin=1"/></net>
+
+<net id="206"><net_src comp="154" pin="4"/><net_sink comp="203" pin=0"/></net>
+
+<net id="207"><net_src comp="203" pin="1"/><net_sink comp="167" pin=0"/></net>
+
+<net id="208"><net_src comp="203" pin="1"/><net_sink comp="111" pin=2"/></net>
+
+<net id="212"><net_src comp="164" pin="1"/><net_sink comp="209" pin=0"/></net>
+
+<net id="213"><net_src comp="209" pin="1"/><net_sink comp="111" pin=4"/></net>
+
+<net id="217"><net_src comp="170" pin="2"/><net_sink comp="214" pin=0"/></net>
+
+<net id="218"><net_src comp="214" pin="1"/><net_sink comp="104" pin=1"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+	Port: gmem | {71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 }
+ - Input state : 
+	Port: krnl_stream_vmult : gmem | {2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 }
+	Port: krnl_stream_vmult : in1 | {1 }
+	Port: krnl_stream_vmult : in2_V_data_V | {72 73 }
+	Port: krnl_stream_vmult : in2_V_keep_V | {72 73 }
+	Port: krnl_stream_vmult : in2_V_strb_V | {72 73 }
+	Port: krnl_stream_vmult : in2_V_last_V | {72 73 }
+	Port: krnl_stream_vmult : out_r | {2 }
+	Port: krnl_stream_vmult : size | {1 }
+  - Chain level:
+	State 1
+	State 2
+		sext_ln32 : 1
+		gmem_addr : 2
+		empty : 3
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+	State 66
+	State 67
+	State 68
+	State 69
+	State 70
+	State 71
+		gmem_addr_1 : 1
+		empty_21 : 2
+	State 72
+	State 73
+	State 74
+	State 75
+	State 76
+	State 77
+	State 78
+	State 79
+	State 80
+	State 81
+	State 82
+	State 83
+	State 84
+	State 85
+	State 86
+	State 87
+	State 88
+	State 89
+	State 90
+	State 91
+	State 92
+	State 93
+	State 94
+	State 95
+	State 96
+	State 97
+	State 98
+	State 99
+	State 100
+	State 101
+	State 102
+	State 103
+	State 104
+	State 105
+	State 106
+	State 107
+	State 108
+	State 109
+	State 110
+	State 111
+	State 112
+	State 113
+	State 114
+	State 115
+	State 116
+	State 117
+	State 118
+	State 119
+	State 120
+	State 121
+	State 122
+	State 123
+	State 124
+	State 125
+	State 126
+	State 127
+	State 128
+	State 129
+	State 130
+	State 131
+	State 132
+	State 133
+	State 134
+	State 135
+	State 136
+	State 137
+	State 138
+	State 139
+	State 140
+	State 141
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|---------------------------------------------|---------|---------|---------|
+| Operation|               Functional Unit               |   DSP   |    FF   |   LUT   |
+|----------|---------------------------------------------|---------|---------|---------|
+|   call   | grp_krnl_stream_vmult_Pipeline_vmult_fu_111 |    3    |   453   |   106   |
+|----------|---------------------------------------------|---------|---------|---------|
+|   icmp   |               icmp_ln32_fu_128              |    0    |    0    |    20   |
+|----------|---------------------------------------------|---------|---------|---------|
+|          |             size_read_read_fu_80            |    0    |    0    |    0    |
+|   read   |             in1_read_read_fu_86             |    0    |    0    |    0    |
+|          |             out_read_read_fu_92             |    0    |    0    |    0    |
+|----------|---------------------------------------------|---------|---------|---------|
+|  readreq |              grp_readreq_fu_98              |    0    |    0    |    0    |
+|----------|---------------------------------------------|---------|---------|---------|
+| writeresp|             grp_writeresp_fu_104            |    0    |    0    |    0    |
+|----------|---------------------------------------------|---------|---------|---------|
+|partselect|               trunc_ln_fu_134               |    0    |    0    |    0    |
+|          |             trunc_ln32_1_fu_154             |    0    |    0    |    0    |
+|----------|---------------------------------------------|---------|---------|---------|
+|   sext   |               sext_ln32_fu_143              |    0    |    0    |    0    |
+|          |              sext_ln32_1_fu_167             |    0    |    0    |    0    |
+|----------|---------------------------------------------|---------|---------|---------|
+|   trunc  |              trunc_ln32_fu_164              |    0    |    0    |    0    |
+|----------|---------------------------------------------|---------|---------|---------|
+|   Total  |                                             |    3    |   453   |   126   |
+|----------|---------------------------------------------|---------|---------|---------|
+
+Memories:
+N/A
+
+* Register list:
++--------------------+--------+
+|                    |   FF   |
++--------------------+--------+
+| gmem_addr_1_reg_214|   32   |
+|  gmem_addr_reg_198 |   32   |
+|  icmp_ln32_reg_189 |    1   |
+|  in1_read_reg_184  |   64   |
+|  size_read_reg_177 |   32   |
+|trunc_ln32_1_reg_203|   62   |
+| trunc_ln32_reg_209 |   31   |
+|  trunc_ln_reg_193  |   62   |
++--------------------+--------+
+|        Total       |   316  |
++--------------------+--------+
+
+* Multiplexer (MUX) list: 
+|----------------------|------|------|------|--------||---------||---------|
+|         Comp         |  Pin | Size |  BW  | S x BW ||  Delay  ||   LUT   |
+|----------------------|------|------|------|--------||---------||---------|
+|   grp_readreq_fu_98  |  p1  |   2  |  32  |   64   ||    9    |
+| grp_writeresp_fu_104 |  p0  |   2  |   1  |    2   |
+| grp_writeresp_fu_104 |  p1  |   2  |  32  |   64   ||    9    |
+|----------------------|------|------|------|--------||---------||---------|
+|         Total        |      |      |      |   130  ||  1.161  ||    18   |
+|----------------------|------|------|------|--------||---------||---------|
+
+
+
+* Summary:
++-----------+--------+--------+--------+--------+
+|           |   DSP  |  Delay |   FF   |   LUT  |
++-----------+--------+--------+--------+--------+
+|  Function |    3   |    -   |   453  |   126  |
+|   Memory  |    -   |    -   |    -   |    -   |
+|Multiplexer|    -   |    1   |    -   |   18   |
+|  Register |    -   |    -   |   316  |    -   |
++-----------+--------+--------+--------+--------+
+|   Total   |    3   |    1   |   769  |   144  |
++-----------+--------+--------+--------+--------+
