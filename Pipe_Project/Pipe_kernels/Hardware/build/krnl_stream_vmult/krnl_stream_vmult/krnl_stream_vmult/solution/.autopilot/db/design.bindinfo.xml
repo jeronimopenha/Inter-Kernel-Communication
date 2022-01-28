@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<BindInfo>
-	<BindNode BINDTYPE="op" DISPLAY="bind_op icmp" ID="" IMPL="auto" LATENCY="0" OPTYPE="icmp" PRAGMA="" RTLNAME="icmp_ln32_fu_131_p2" SOURCE="/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32" VARIABLE="icmp_ln32" MODULE="krnl_stream_vmult_Pipeline_vmult" LOOP="vmult" DSP="0" BRAM="0" URAM="0"/>
-	<BindNode BINDTYPE="op" DISPLAY="bind_op add" ID="" IMPL="fabric" LATENCY="0" OPTYPE="add" PRAGMA="" RTLNAME="add_ln32_fu_137_p2" SOURCE="/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32" VARIABLE="add_ln32" MODULE="krnl_stream_vmult_Pipeline_vmult" LOOP="vmult" DSP="0" BRAM="0" URAM="0"/>
-	<BindNode BINDTYPE="op" DISPLAY="bind_op mul" ID="" IMPL="auto" LATENCY="1" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_2_1_U1" SOURCE="/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:35" VARIABLE="mul_ln35" MODULE="krnl_stream_vmult_Pipeline_vmult" LOOP="vmult" DSP="3" BRAM="0" URAM="0"/>
-	<BindNode BINDTYPE="op" DISPLAY="bind_op icmp" ID="" IMPL="auto" LATENCY="0" OPTYPE="icmp" PRAGMA="" RTLNAME="icmp_ln32_fu_128_p2" SOURCE="/home/centos/workspace/Pipe_kernels/src/krnl_stream_vmult.cpp:32" VARIABLE="icmp_ln32" MODULE="krnl_stream_vmult" LOOP="" DSP="0" BRAM="0" URAM="0"/>
-</BindInfo>

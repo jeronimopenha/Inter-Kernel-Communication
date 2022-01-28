@@ -1,2 +1,0 @@
-performing high-level synthesis for kernel: krnl_stream_vmult
-Log file: /home/centos/workspace/Pipe_kernels/Hardware/build/krnl_stream_vmult/krnl_stream_vmult/vitis_hls.log
